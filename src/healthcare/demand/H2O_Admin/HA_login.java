@@ -3,6 +3,7 @@ package healthcare.demand.H2O_Admin;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.view.View;
@@ -11,6 +12,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import etc.PHPReader;
 import etc.ViewMethod_l;
 import etc.Views;
 
@@ -32,6 +34,15 @@ public class HA_login extends Activity {
     ImageView checkbox;
     TextView save;
     TextView login;
+
+    // SERVER & PREFERENCES
+    PHPReader php;
+    String id, pwd;
+    SharedPreferences loginInfo;
+    SharedPreferences.Editor editor;
+    String pref_id, pref_pw;
+    String name;
+    boolean isChecked = false;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -80,7 +91,6 @@ public class HA_login extends Activity {
             public void onClick(View v) {
 //                startActivity(new Intent(HA_login.this, HA_message.class));
                 startActivity(new Intent(HA_login.this, HA_monitor.class));
-
             }
         });
 
