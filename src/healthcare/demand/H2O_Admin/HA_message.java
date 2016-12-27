@@ -26,7 +26,7 @@ public class HA_message extends Activity {
     Views vs = new Views();
     //
     ImageView back;
-    TextView userid;
+    TextView title;
     ScrollView sv;
     LinearLayout dynamic;
     LinearLayout bot;
@@ -47,17 +47,17 @@ public class HA_message extends Activity {
         res = getResources();
         //
         back = (ImageView)findViewById(R.id.back);
-        userid = (TextView)findViewById(R.id.userid);
-        sv = (ScrollView)findViewById(R.id.sv);
-        dynamic = (LinearLayout)findViewById(R.id.dynamic);
+        title = (TextView)findViewById(R.id.title);
+//        sv = (ScrollView)findViewById(R.id.sv);
+//        dynamic = (LinearLayout)findViewById(R.id.dynamic);
         bot = (LinearLayout)findViewById(R.id.bot);
         message = (EditText)findViewById(R.id.message);
         send = (TextView)findViewById(R.id.send);
         //
         vm.resizeSingleView(back, res, R.drawable.icon_back, "frame", 150, 150);
-        vm.reformSingleTextBasedView(context, userid, 60, "bold");
-        vm.resizeSingleView(sv, "frame", 0, 0, 0, 150, 0, 200);
-        vm.resizeSingleView(bot, "frame", 1080, 200, 0, 0, 0, 0, 50, 30, 50, 30);
+        vm.reformSingleTextBasedView(context, title, 60, "bold");
+//        vm.resizeSingleView(sv, "frame", 0, 0, 0, 150, 0, 200);
+        vm.resizeSingleView(bot, "linear", 1080, 200, 0, 0, 0, 0, 50, 30, 50, 30);
         vm.reformSingleTextBasedView(context, message, 30, "regular", "linear", 800, 140, 0, 0, 0, 0, 30, 20, 30, 20);
         vm.reformSingleTextBasedView(context, send, 45, "bold", "linear", 180, 140);
     }
