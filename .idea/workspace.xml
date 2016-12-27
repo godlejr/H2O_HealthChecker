@@ -9,20 +9,14 @@
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6c9b394c-da03-448d-b3d9-9b3c8e77cb0a" name="Default" comment="test">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/etc/PHPReader.java" />
+    <list default="true" id="6c9b394c-da03-448d-b3d9-9b3c8e77cb0a" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/H2OAdmin/H2OAdmin.apk" afterPath="$PROJECT_DIR$/out/production/H2OAdmin/H2OAdmin.apk" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/H2OAdmin/H2OAdmin.unaligned.apk" afterPath="$PROJECT_DIR$/out/production/H2OAdmin/H2OAdmin.unaligned.apk" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/H2OAdmin/healthcare/demand/H2O_Admin/R$drawable.class" afterPath="$PROJECT_DIR$/out/production/H2OAdmin/healthcare/demand/H2O_Admin/R$drawable.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/H2OAdmin/healthcare/demand/H2O_Admin/R$id.class" afterPath="$PROJECT_DIR$/out/production/H2OAdmin/healthcare/demand/H2O_Admin/R$id.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/H2OAdmin/healthcare/demand/H2O_Admin/R$layout.class" afterPath="$PROJECT_DIR$/out/production/H2OAdmin/healthcare/demand/H2O_Admin/R$layout.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/H2OAdmin/healthcare/demand/H2O_Admin/R$string.class" afterPath="$PROJECT_DIR$/out/production/H2OAdmin/healthcare/demand/H2O_Admin/R$string.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/H2OAdmin.iml" afterPath="$PROJECT_DIR$/H2OAdmin.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project.properties" afterPath="$PROJECT_DIR$/project.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/layout-land/ha_app_cnt.xml" afterPath="$PROJECT_DIR$/res/layout-land/ha_app_cnt.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/healthcare/demand/H2O_Admin/HA_login.java" afterPath="$PROJECT_DIR$/src/healthcare/demand/H2O_Admin/HA_login.java" />
     </list>
     <ignored path="H2O Admin.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -679,7 +673,14 @@
       <option name="project" value="LOCAL" />
       <updated>1482803519135</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="php reader 추가">
+      <created>1482811590032</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1482811590032</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -748,7 +749,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="test" />
-    <option name="LAST_COMMIT_MESSAGE" value="test" />
+    <MESSAGE value="php reader 추가" />
+    <option name="LAST_COMMIT_MESSAGE" value="php reader 추가" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
