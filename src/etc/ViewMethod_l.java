@@ -26,7 +26,7 @@ import android.widget.TextView;
 public class ViewMethod_l {
 
     double targetWidth = 1920.;
-
+    int i;
     Typeface bold, light, medium, regular, thin, helvet, helvet_i, har;
 
     int dpWidth(){
