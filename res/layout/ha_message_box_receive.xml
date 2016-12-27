@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:text="NAME(ID)"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/tv_msg_name"
+        android:layout_marginBottom="25px"
+        android:textColor="#414141" />
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:text="MSG"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_msg_receive"
+            android:background="@drawable/round_corner"
+            android:padding="10dp"
+            android:textColor="#414141"
+           />
+
+        <TextView
+            android:text="PM 5:28"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_msg_time_receive"
+            android:layout_weight="1"
+            android:layout_marginTop="30px"
+            android:layout_marginLeft="20px"
+            android:textColor="#5c5c5c" />
+    </LinearLayout>
+
+</LinearLayout>

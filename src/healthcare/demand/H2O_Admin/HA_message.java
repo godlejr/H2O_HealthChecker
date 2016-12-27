@@ -4,15 +4,29 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.res.Resources;
 import android.os.Bundle;
+import android.text.Layout;
+import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.MotionEvent;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.BaseAdapter;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.ListView;
 import android.widget.ScrollView;
 import android.widget.TextView;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import etc.ViewMethod;
 import etc.ViewMethod_l;
 import etc.Views;
+
+import static android.view.View.GONE;
 
 public class HA_message extends Activity {
     /**
@@ -32,6 +46,7 @@ public class HA_message extends Activity {
     LinearLayout bot;
     EditText message;
     TextView send;
+    ViewMethod_l vml;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -40,20 +55,21 @@ public class HA_message extends Activity {
 
         adjustViews();
         defineEvents();
+        init();
     }
 
-    private void adjustViews(){
+    private void adjustViews() {
         context = getApplicationContext();
         res = getResources();
-        //
-        back = (ImageView)findViewById(R.id.back);
-        title = (TextView)findViewById(R.id.title);
+
+        back = (ImageView) findViewById(R.id.back);
+        title = (TextView) findViewById(R.id.title);
 //        sv = (ScrollView)findViewById(R.id.sv);
 //        dynamic = (LinearLayout)findViewById(R.id.dynamic);
-        bot = (LinearLayout)findViewById(R.id.bot);
-        message = (EditText)findViewById(R.id.message);
-        send = (TextView)findViewById(R.id.send);
-        //
+        bot = (LinearLayout) findViewById(R.id.bot);
+        message = (EditText) findViewById(R.id.message);
+        send = (TextView) findViewById(R.id.send);
+
         vm.resizeSingleView(back, res, R.drawable.icon_back, "frame", 150, 150);
         vm.reformSingleTextBasedView(context, title, 60, "bold");
 //        vm.resizeSingleView(sv, "frame", 0, 0, 0, 150, 0, 200);
@@ -62,8 +78,90 @@ public class HA_message extends Activity {
         vm.reformSingleTextBasedView(context, send, 45, "bold", "linear", 180, 140);
     }
 
-    private void defineEvents(){
+    private void defineEvents() {
 
 
+    }
+
+    private void init() {
+        vml = new ViewMethod_l();
+        ListView lv = (ListView) findViewById(R.id.lv_msg);
+
+        /******************** 테스트용 리스트 ******************/
+        ArrayList<HA_message_item> list = new ArrayList<>();
+        list.add(new HA_message_item("장기원", "아이디", "date", "time", "스무디를 사용하면서~~~~~~~~~\n~~~~~~~~~~~~~~~~\n~~~~~~~~~~~~~~~\n~~~~~~~~~~~~~~", "R"));
+        list.add(new HA_message_item("장기원", "아이디", "date", "time", "스무디에서 문의 버튼을~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~", "R"));
+        list.add(new HA_message_item("name", "id", "date", "time", "어떻게 하나요?", "S"));
+
+        lv.setAdapter(new Adapter(list));
+
+    }
+    class Adapter extends BaseAdapter {
+        ArrayList<HA_message_item> list = new ArrayList<>();
+        LayoutInflater inflater;
+        int i = 0;
+
+        public Adapter(ArrayList<HA_message_item> list) {
+            this.list = list;
+            inflater = (LayoutInflater) getSystemService(LAYOUT_INFLATER_SERVICE);
+        }
+
+        @Override
+        public int getCount() {
+            return list.size();
+        }
+
+        @Override
+        public Object getItem(int position) {
+            return list.get(position);
+        }
+
+        @Override
+        public long getItemId(int position) {
+            return position;
+        }
+
+        @Override
+        public View getView(int position, View convertView, ViewGroup parent) {
+            Log.e("채팅", i++ +"");
+
+            TextView content = null, time = null,  name =null;
+
+            if (list.get(position).getFlag().equals("R")) { // receive
+                convertView = inflater.inflate(R.layout.ha_message_box_receive, parent, false);
+                content = (TextView) convertView.findViewById(R.id.tv_msg_receive);
+                time = (TextView) convertView.findViewById(R.id.tv_msg_time_receive);
+                name = (TextView) convertView.findViewById(R.id.tv_msg_name);
+
+                String userName = list.get(position).getName() + "(" + list.get(position).getId() + ")";
+                name.setText(userName);
+                vml.reformSingleTextBasedView(convertView.getContext(), name, 43, "regular");
+
+            } else if (list.get(position).getFlag().equals("S")) {// send
+                convertView = inflater.inflate(R.layout.ha_message_box_send, parent, false);
+
+                content = (TextView) convertView.findViewById(R.id.tv_msg_send);
+                time = (TextView) convertView.findViewById(R.id.tv_msg_time_send);
+            }
+
+            content.setText(list.get(position).getContent());
+            time.setText(list.get(position).getTime());
+
+            content.setMaxWidth(300);
+
+            vml.reformSingleTextBasedView(convertView.getContext(), content, 45, "regular");
+            vml.reformSingleTextBasedView(convertView.getContext(), time, 35, "regular");
+
+            // date는 아직
+
+            convertView.setOnTouchListener(new View.OnTouchListener() { // 터치이벤트 X
+                @Override
+                public boolean onTouch(View v, MotionEvent event) {
+                    return true;
+                }
+            });
+
+            return convertView;
+        }
     }
 }
