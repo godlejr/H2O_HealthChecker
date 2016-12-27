@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#ffffff">
+
+        <ImageView
+            android:src="@drawable/icon_logout"
+            android:layout_width="120px"
+            android:layout_height="120px"
+            android:id="@+id/imageView" />
+
+        <TextView
+            android:text="사용자 현황"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView"
+            android:layout_gravity="center"
+            android:textColor="#5c5c5c"
+            android:textSize="60px" />
+    </FrameLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#a0a0a0">
+
+        <TextView
+            android:text="순번"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView8"
+            android:layout_weight="1"
+            android:layout_marginTop="1px"
+            android:layout_marginBottom="1px"
+            android:layout_marginRight="1px"
+            android:gravity="center"
+            android:textSize="30px"
+            android:textColor="#898989"
+            android:background="#f2f2f2" />
+
+        <TextView
+            android:text="ID"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView7"
+            android:layout_weight="1"
+            android:layout_marginTop="1px"
+            android:layout_marginBottom="1px"
+            android:layout_marginRight="1px"
+            android:gravity="center"
+            android:textSize="30px"
+            android:textColor="#898989"
+            android:background="#f2f2f2" />
+
+        <TextView
+            android:text="이름"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView6"
+            android:layout_weight="1"
+            android:layout_marginTop="1px"
+            android:layout_marginBottom="1px"
+            android:layout_marginRight="1px"
+            android:gravity="center"
+            android:textSize="30px"
+            android:textColor="#898989"
+            android:background="#f2f2f2" />
+
+        <TextView
+            android:text="Stress/ANB/HRV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView5"
+            android:layout_weight="1"
+            android:layout_marginTop="1px"
+            android:layout_marginBottom="1px"
+            android:layout_marginRight="1px"
+            android:gravity="center"
+            android:textSize="30px"
+            android:textColor="#898989"
+            android:background="#f2f2f2" />
+
+        <TextView
+            android:text="수면 / 스트레스"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView4"
+            android:layout_weight="1"
+            android:layout_marginTop="1px"
+            android:layout_marginBottom="1px"
+            android:layout_marginRight="1px"
+            android:gravity="center"
+            android:textSize="30px"
+            android:textColor="#898989"
+            android:background="#f2f2f2" />
+
+        <TextView
+            android:text="컨텐츠 사용 횟수"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView3"
+            android:layout_weight="1"
+            android:layout_marginTop="1px"
+            android:layout_marginBottom="1px"
+            android:layout_marginRight="1px"
+            android:gravity="center"
+            android:textSize="30px"
+            android:textColor="#898989"
+            android:background="#f2f2f2" />
+
+        <TextView
+            android:text="메시지"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView2"
+            android:layout_weight="1"
+            android:layout_marginTop="1px"
+            android:layout_marginBottom="1px"
+            android:gravity="center"
+            android:textSize="30px"
+            android:textColor="#898989"
+            android:background="#f2f2f2" />
+    </LinearLayout>
+</LinearLayout>

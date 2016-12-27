@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top|center_horizontal"
+        android:background="#ffffff">
+
+        <ImageView
+            android:src="@drawable/icon_back"
+            android:layout_width="150px"
+            android:layout_height="150px"
+            android:id="@+id/back"
+            android:layout_gravity="center_vertical" />
+
+        <TextView
+            android:text="ID_###"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/userid"
+            android:layout_gravity="center"
+            android:textColor="#5c5c5c"
+            android:textSize="60px" />
+    </FrameLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="1080px"
+        android:layout_gravity="bottom"
+        android:background="#e5e5e5"
+        android:layout_height="200px"
+        android:paddingBottom="30px"
+        android:paddingLeft="50px"
+        android:paddingRight="50px"
+        android:paddingTop="30px"
+        android:id="@+id/bot">
+
+        <EditText
+            android:layout_height="140px"
+            android:inputType="textPersonName"
+            android:ems="10"
+            android:id="@+id/message"
+            android:background="#ffffff"
+            android:layout_width="800px"
+            android:paddingLeft="30px"
+            android:layout_gravity="center_vertical"
+            android:textSize="26px"
+            android:textColor="#5c5c5c"
+            android:gravity="center_vertical"/>
+
+        <TextView
+            android:text="전송"
+            android:layout_width="180px"
+            android:layout_height="140px"
+            android:id="@+id/send"
+            android:layout_gravity="center_vertical"
+            android:background="#5c5c5c"
+            android:textColor="#ffffff"
+            android:textSize="45px"
+            android:gravity="center" />
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="150px"
+        android:layout_marginBottom="200px"
+        android:background="#f5f5f5"
+        android:scrollbars="none"
+        android:fadeScrollbars="false"
+        android:id="@+id/sv">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:id="@+id/dynamic" />
+    </ScrollView>
+</FrameLayout>
