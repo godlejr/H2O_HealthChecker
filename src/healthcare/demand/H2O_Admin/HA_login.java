@@ -43,21 +43,21 @@ public class HA_login extends Activity {
 
     }
 
-    private void adjustViews(){
+    private void adjustViews() {
         context = getApplicationContext();
         res = getResources();
         //
-        logo_top = (ImageView)findViewById(R.id.logo_top);
-        ll_id = (LinearLayout)findViewById(R.id.ll_id);
-        ll_pw = (LinearLayout)findViewById(R.id.ll_pw);
-        ll_save = (LinearLayout)findViewById(R.id.ll_save);
+        logo_top = (ImageView) findViewById(R.id.logo_top);
+        ll_id = (LinearLayout) findViewById(R.id.ll_id);
+        ll_pw = (LinearLayout) findViewById(R.id.ll_pw);
+        ll_save = (LinearLayout) findViewById(R.id.ll_save);
         icon_id = (ImageView) findViewById(R.id.icon_id);
-        icon_pw = (ImageView)findViewById(R.id.icon_pw);
-        et_id = (EditText)findViewById(R.id.et_id);
-        et_pw = (EditText)findViewById(R.id.et_pw);
-        checkbox = (ImageView)findViewById(R.id.checkbox);
-        save = (TextView)findViewById(R.id.save);
-        login = (TextView)findViewById(R.id.login);
+        icon_pw = (ImageView) findViewById(R.id.icon_pw);
+        et_id = (EditText) findViewById(R.id.et_id);
+        et_pw = (EditText) findViewById(R.id.et_pw);
+        checkbox = (ImageView) findViewById(R.id.checkbox);
+        save = (TextView) findViewById(R.id.save);
+        login = (TextView) findViewById(R.id.login);
         //
         vml.resizeSingleView(logo_top, res, R.drawable.image_1, "linear", 1920, 524);
         vml.resizeSingleView(ll_id, "linear", 0, 0, 0, 0, 0, 40);
@@ -74,11 +74,13 @@ public class HA_login extends Activity {
 
     }
 
-    private void defineEvents(){
+    private void defineEvents() {
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(HA_login.this, HA_message.class));
+//                startActivity(new Intent(HA_login.this, HA_message.class));
+                startActivity(new Intent(HA_login.this, HA_monitor.class));
+
             }
         });
 

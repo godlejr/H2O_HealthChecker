@@ -14,5 +14,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".HA_message" android:screenOrientation="portrait" android:theme="@android:style/Theme.NoTitleBar" android:windowSoftInputMode="adjustNothing"></activity>
+        <activity android:name=".HA_monitor" android:screenOrientation="landscape"/>
+
+
     </application>
 </manifest>
