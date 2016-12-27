@@ -8,6 +8,7 @@ import android.content.res.Resources;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.EditText;
@@ -57,6 +58,7 @@ public class HA_login extends Activity {
         setContentView(R.layout.ha_login);
 
         adjustViews();
+        firstView();
         defineEvents();
 
     }
@@ -131,8 +133,6 @@ public class HA_login extends Activity {
                 return true;
             }
         });
-
-
     }
 
     public void login(){
@@ -170,6 +170,51 @@ public class HA_login extends Activity {
         }catch(Exception e){
             e.printStackTrace();
         }
+    }
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        switch (keyCode) {
+            case KeyEvent.KEYCODE_BACK:
+                android.os.Process.killProcess(android.os.Process.myPid());
+        }
+        return false;
+    }
+    private void firstView(){
+        loginInfo = getSharedPreferences("loginInfo", Activity.MODE_PRIVATE);
+
+        pref_id = loginInfo.getString("et_id", "");
+        pref_pw = loginInfo.getString("et_pw", "");
+        isChecked = loginInfo.getBoolean("isChecked", isChecked);
+
+        et_id.setText(pref_id);
+        et_pw.setText(pref_pw);
+
+        checkBox();
+    }
+
+    public void onStop(){
+        super.onStop();
+        loginInfo = getSharedPreferences("loginInfo", Activity.MODE_PRIVATE);
+        editor = loginInfo.edit();
+        if(isChecked == true) {
+            editor.putString("et_id", et_id.getText().toString());
+            editor.putString("et_pw", et_pw.getText().toString());
+            editor.putBoolean("isChecked", true);
+        }
+
+        else if(isChecked == false){
+            String none = "";
+            editor.putString("et_id", none);
+            editor.putString("et_pw", none);
+            editor.putBoolean("isChecked", false);
+        }
+        editor.commit();
+    }
+
+    public void checkBox(){
+        if(isChecked == false) checkbox.setImageResource(R.drawable.check_0);
+        else if(isChecked == true) checkbox.setImageResource(R.drawable.check_1);
     }
 
 }
