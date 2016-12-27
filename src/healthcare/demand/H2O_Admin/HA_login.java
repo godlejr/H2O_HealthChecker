@@ -8,6 +8,7 @@ import android.content.res.Resources;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.EditText;
@@ -57,6 +58,7 @@ public class HA_login extends Activity {
         setContentView(R.layout.ha_login);
 
         adjustViews();
+        firstView();
         defineEvents();
 
     }
@@ -97,15 +99,16 @@ public class HA_login extends Activity {
         ll_save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(isChecked == false){
+                if (isChecked == false) {
                     isChecked = true;
-                    checkbox.setImageResource(R.drawable.check);
-                    save.setTextColor(Color.parseColor("#444444"));
-                }
-                else if(isChecked == true){
-                    isChecked = false;
+                    Log.i("check?","응 체크");
                     checkbox.setImageResource(R.drawable.check_1);
+                    save.setTextColor(Color.parseColor("#444444"));
+                } else if (isChecked == true) {
+                    isChecked = false;
+                    checkbox.setImageResource(R.drawable.check);
                     save.setTextColor(Color.parseColor("#858585"));
+                    Log.i("check?","아니 체크");
                 }
             }
         });
@@ -113,16 +116,16 @@ public class HA_login extends Activity {
         login.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
-                switch (event.getAction()){
-                    case MotionEvent.ACTION_DOWN :
+                switch (event.getAction()) {
+                    case MotionEvent.ACTION_DOWN:
                         login.setTextColor(Color.parseColor("#f5f5f5"));
                         vs.customBox(login, "#444444", "#444444", 60, 2);
                         break;
-                    case MotionEvent.ACTION_CANCEL :
+                    case MotionEvent.ACTION_CANCEL:
                         login.setTextColor(Color.parseColor("#444444"));
                         vs.customBox(login, "#f5f5f5", "#444444", 60, 2);
                         break;
-                    case MotionEvent.ACTION_UP :
+                    case MotionEvent.ACTION_UP:
                         login.setTextColor(Color.parseColor("#444444"));
                         vs.customBox(login, "#f5f5f5", "#444444", 60, 2);
                         login();
@@ -131,11 +134,9 @@ public class HA_login extends Activity {
                 return true;
             }
         });
-
-
     }
 
-    public void login(){
+    public void login() {
         id = et_id.getText().toString();
         pwd = et_pw.getText().toString();
 
@@ -145,21 +146,19 @@ public class HA_login extends Activity {
         php.addVariable("dbName", "h2ov2");
         php.execute("http://1.234.63.165/h2o/admin/login.php");
 
-        try{
-            if(php.get().trim().equalsIgnoreCase("No Such User Found")){
-                Log.i("pddddd","dsfddf");
+        try {
+            if (php.get().trim().equalsIgnoreCase("No Such User Found")) {
                 Toast.makeText(context, "ID/PW를 확인해주세요", Toast.LENGTH_SHORT).show();
-            }else{
+            } else {
                 Toast.makeText(context, "로그인 되었습니다", Toast.LENGTH_SHORT).show();
 
                 JSONObject root = new JSONObject(php.get().trim());
                 JSONArray ja = root.getJSONArray("results");
 
-                for(int i = 0; i < ja.length(); i++){
+                for (int i = 0; i < ja.length(); i++) {
                     JSONObject jo = ja.getJSONObject(i);
                     name = jo.getString("name");
                 }
-                Log.i("pddddd",name);
                 Intent intent = new Intent(HA_login.this, HA_monitor.class);
                 intent.putExtra("id", id);
                 intent.putExtra("name", name);
@@ -167,9 +166,56 @@ public class HA_login extends Activity {
                 finish();
                 overridePendingTransition(R.anim.appear_from_right_300, R.anim.disappear_to_left_300);
             }
-        }catch(Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        switch (keyCode) {
+            case KeyEvent.KEYCODE_BACK:
+                android.os.Process.killProcess(android.os.Process.myPid());
+        }
+        return false;
+    }
+
+    private void firstView() {
+        loginInfo = getSharedPreferences("loginInfo", Activity.MODE_PRIVATE);
+
+        pref_id = loginInfo.getString("et_id", "");
+        pref_pw = loginInfo.getString("et_pw", "");
+        isChecked = loginInfo.getBoolean("isChecked", isChecked);
+
+        et_id.setText(pref_id);
+        et_pw.setText(pref_pw);
+
+        checkBox();
+    }
+
+    public void onStop() {
+        super.onStop();
+        loginInfo = getSharedPreferences("loginInfo", Activity.MODE_PRIVATE);
+        editor = loginInfo.edit();
+        if (isChecked == true) {
+            editor.putString("et_id", et_id.getText().toString());
+            editor.putString("et_pw", et_pw.getText().toString());
+            editor.putBoolean("isChecked", true);
+
+            Log.i("dkjsfhkd", "된다");
+        } else if (isChecked == false) {
+            String none = "";
+            editor.putString("et_id", none);
+            editor.putString("et_pw", none);
+            editor.putBoolean("isChecked", false);
+            Log.i("dkjsfhkd", "안된다");
+        }
+        editor.commit();
+    }
+
+    public void checkBox() {
+        if (isChecked == false) checkbox.setImageResource(R.drawable.check);
+        else if (isChecked == true) checkbox.setImageResource(R.drawable.check_1);
     }
 
 }
