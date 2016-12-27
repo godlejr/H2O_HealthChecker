@@ -213,7 +213,7 @@ public class HA_login extends Activity {
     }
 
     public void checkBox(){
-        if(isChecked == false) checkbox.setImageResource(R.drawable.check_0);
+        if(isChecked == false) checkbox.setImageResource(R.drawable.check);
         else if(isChecked == true) checkbox.setImageResource(R.drawable.check_1);
     }
 

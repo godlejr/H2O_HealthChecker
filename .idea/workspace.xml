@@ -13,16 +13,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6c9b394c-da03-448d-b3d9-9b3c8e77cb0a" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/H2OAdmin/H2OAdmin.apk" afterPath="$PROJECT_DIR$/out/production/H2OAdmin/H2OAdmin.apk" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/H2OAdmin/H2OAdmin.unaligned.apk" afterPath="$PROJECT_DIR$/out/production/H2OAdmin/H2OAdmin.unaligned.apk" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/H2OAdmin/healthcare/demand/H2O_Admin/HA_login$1.class" afterPath="$PROJECT_DIR$/out/production/H2OAdmin/healthcare/demand/H2O_Admin/HA_login$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/H2OAdmin/healthcare/demand/H2O_Admin/HA_login.class" afterPath="$PROJECT_DIR$/out/production/H2OAdmin/healthcare/demand/H2O_Admin/HA_login.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/H2OAdmin/healthcare/demand/H2O_Admin/R$drawable.class" afterPath="$PROJECT_DIR$/out/production/H2OAdmin/healthcare/demand/H2O_Admin/R$drawable.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/H2OAdmin/healthcare/demand/H2O_Admin/R$id.class" afterPath="$PROJECT_DIR$/out/production/H2OAdmin/healthcare/demand/H2O_Admin/R$id.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/H2OAdmin/healthcare/demand/H2O_Admin/R$layout.class" afterPath="$PROJECT_DIR$/out/production/H2OAdmin/healthcare/demand/H2O_Admin/R$layout.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/H2OAdmin/healthcare/demand/H2O_Admin/R$string.class" afterPath="$PROJECT_DIR$/out/production/H2OAdmin/healthcare/demand/H2O_Admin/R$string.class" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/H2OAdmin/healthcare/demand/H2O_Admin/HA_login$1.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/H2OAdmin/healthcare/demand/H2O_Admin/HA_login.class" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AndroidManifest.xml" afterPath="$PROJECT_DIR$/AndroidManifest.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/healthcare/demand/H2O_Admin/HA_login.java" afterPath="$PROJECT_DIR$/src/healthcare/demand/H2O_Admin/HA_login.java" />
     </list>
     <ignored path="H2O Admin.iws" />
@@ -60,14 +53,14 @@
       <file leaf-file-name="HA_login.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/healthcare/demand/H2O_Admin/HA_login.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="276">
-              <caret line="150" column="81" selection-start-line="150" selection-start-column="81" selection-end-line="150" selection-end-column="81" />
+            <state relative-caret-position="592">
+              <caret line="211" column="24" selection-start-line="211" selection-start-column="24" selection-end-line="211" selection-end-column="24" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#3258#3839#0" expanded="true" />
-                <element signature="e#3838#3839#0" expanded="true" />
-                <element signature="e#3876#4825#0" expanded="true" />
-                <element signature="e#4824#4825#0" expanded="true" />
+                <element signature="e#3309#3890#0" expanded="true" />
+                <element signature="e#3889#3890#0" expanded="true" />
+                <element signature="e#3927#4876#0" expanded="true" />
+                <element signature="e#4875#4876#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -117,6 +110,7 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="UPDATE_TYPE" value="MERGE" />
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="PUSH_TAGS">
       <GitPushTagMode />
@@ -142,8 +136,8 @@
         <option value="$PROJECT_DIR$/src/healthcare/demand/H2O_Admin/HA_monitor.java" />
         <option value="$PROJECT_DIR$/res/layout-land/ha_app_cnt.xml" />
         <option value="$PROJECT_DIR$/src/healthcare/demand/H2O_Admin/HA_appCnt.java" />
-        <option value="$PROJECT_DIR$/src/healthcare/demand/H2O_Admin/HA_login.java" />
         <option value="$PROJECT_DIR$/AndroidManifest.xml" />
+        <option value="$PROJECT_DIR$/src/healthcare/demand/H2O_Admin/HA_login.java" />
       </list>
     </option>
   </component>
@@ -736,7 +730,21 @@
       <option name="project" value="LOCAL" />
       <updated>1482812843722</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="login 기능 완료">
+      <created>1482815084062</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1482815084062</updated>
+    </task>
+    <task id="LOCAL-00010" summary="자동 login 기능 완료">
+      <created>1482815465169</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1482815465169</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -757,12 +765,12 @@
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289183" sideWeight="0.49569893" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3283582" sideWeight="0.49569893" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32781458" sideWeight="0.49569893" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.34768212" sideWeight="0.2947761" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.34768212" sideWeight="0.2947761" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.36754966" sideWeight="0.49784946" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32995737" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.14348786" sideWeight="0.49784946" order="9" side_tool="false" content_ui="tabs" />
@@ -809,7 +817,9 @@
     <MESSAGE value="round_corner.xml (22)" />
     <MESSAGE value="test" />
     <MESSAGE value="login" />
-    <option name="LAST_COMMIT_MESSAGE" value="login" />
+    <MESSAGE value="login 기능 완료" />
+    <MESSAGE value="자동 login 기능 완료" />
+    <option name="LAST_COMMIT_MESSAGE" value="자동 login 기능 완료" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -832,10 +842,10 @@
           <caret line="80" column="16" selection-start-line="80" selection-start-column="16" selection-end-line="80" selection-end-column="16" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#3258#3839#0" expanded="true" />
-            <element signature="e#3838#3839#0" expanded="true" />
-            <element signature="e#3876#4825#0" expanded="true" />
-            <element signature="e#4824#4825#0" expanded="true" />
+            <element signature="e#3309#3890#0" expanded="true" />
+            <element signature="e#3889#3890#0" expanded="true" />
+            <element signature="e#3927#4876#0" expanded="true" />
+            <element signature="e#4875#4876#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -922,10 +932,10 @@
           <caret line="80" column="16" selection-start-line="80" selection-start-column="16" selection-end-line="80" selection-end-column="16" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#3258#3839#0" expanded="true" />
-            <element signature="e#3838#3839#0" expanded="true" />
-            <element signature="e#3876#4825#0" expanded="true" />
-            <element signature="e#4824#4825#0" expanded="true" />
+            <element signature="e#3309#3890#0" expanded="true" />
+            <element signature="e#3889#3890#0" expanded="true" />
+            <element signature="e#3927#4876#0" expanded="true" />
+            <element signature="e#4875#4876#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1004,10 +1014,10 @@
           <caret line="68" column="70" selection-start-line="68" selection-start-column="70" selection-end-line="68" selection-end-column="70" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#3258#3839#0" expanded="true" />
-            <element signature="e#3838#3839#0" expanded="true" />
-            <element signature="e#3876#4825#0" expanded="true" />
-            <element signature="e#4824#4825#0" expanded="true" />
+            <element signature="e#3309#3890#0" expanded="true" />
+            <element signature="e#3889#3890#0" expanded="true" />
+            <element signature="e#3927#4876#0" expanded="true" />
+            <element signature="e#4875#4876#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1280,14 +1290,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/healthcare/demand/H2O_Admin/HA_login.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="276">
-          <caret line="150" column="81" selection-start-line="150" selection-start-column="81" selection-end-line="150" selection-end-column="81" />
+        <state relative-caret-position="592">
+          <caret line="211" column="24" selection-start-line="211" selection-start-column="24" selection-end-line="211" selection-end-column="24" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#3258#3839#0" expanded="true" />
-            <element signature="e#3838#3839#0" expanded="true" />
-            <element signature="e#3876#4825#0" expanded="true" />
-            <element signature="e#4824#4825#0" expanded="true" />
+            <element signature="e#3309#3890#0" expanded="true" />
+            <element signature="e#3889#3890#0" expanded="true" />
+            <element signature="e#3927#4876#0" expanded="true" />
+            <element signature="e#4875#4876#0" expanded="true" />
           </folding>
         </state>
       </provider>
