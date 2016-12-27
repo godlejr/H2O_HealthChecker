@@ -5,12 +5,19 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Resources;
+import android.graphics.Color;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import org.json.JSONArray;
+import org.json.JSONObject;
 
 import etc.PHPReader;
 import etc.ViewMethod_l;
@@ -86,13 +93,83 @@ public class HA_login extends Activity {
     }
 
     private void defineEvents() {
-        login.setOnClickListener(new View.OnClickListener() {
+
+        ll_save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                startActivity(new Intent(HA_login.this, HA_message.class));
-                startActivity(new Intent(HA_login.this, HA_monitor.class));
+                if(isChecked == false){
+                    isChecked = true;
+                    checkbox.setImageResource(R.drawable.check);
+                    save.setTextColor(Color.parseColor("#444444"));
+                }
+                else if(isChecked == true){
+                    isChecked = false;
+                    checkbox.setImageResource(R.drawable.check_1);
+                    save.setTextColor(Color.parseColor("#858585"));
+                }
             }
         });
 
+        login.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                switch (event.getAction()){
+                    case MotionEvent.ACTION_DOWN :
+                        login.setTextColor(Color.parseColor("#f5f5f5"));
+                        vs.customBox(login, "#444444", "#444444", 60, 2);
+                        break;
+                    case MotionEvent.ACTION_CANCEL :
+                        login.setTextColor(Color.parseColor("#444444"));
+                        vs.customBox(login, "#f5f5f5", "#444444", 60, 2);
+                        break;
+                    case MotionEvent.ACTION_UP :
+                        login.setTextColor(Color.parseColor("#444444"));
+                        vs.customBox(login, "#f5f5f5", "#444444", 60, 2);
+                        login();
+                        break;
+                }
+                return true;
+            }
+        });
+
+
     }
+
+    public void login(){
+        id = et_id.getText().toString();
+        pwd = et_pw.getText().toString();
+
+        php = new PHPReader();
+        php.addVariable("id", id);
+        php.addVariable("password", pwd);
+        php.addVariable("dbName", "h2ov2");
+        php.execute("http://1.234.63.165/h2o/admin/login.php");
+
+        try{
+            if(php.get().trim().equalsIgnoreCase("No Such User Found")){
+                Log.i("pddddd","dsfddf");
+                Toast.makeText(context, "ID/PW를 확인해주세요", Toast.LENGTH_SHORT).show();
+            }else{
+                Toast.makeText(context, "로그인 되었습니다", Toast.LENGTH_SHORT).show();
+
+                JSONObject root = new JSONObject(php.get().trim());
+                JSONArray ja = root.getJSONArray("results");
+
+                for(int i = 0; i < ja.length(); i++){
+                    JSONObject jo = ja.getJSONObject(i);
+                    name = jo.getString("name");
+                }
+                Log.i("pddddd",name);
+                Intent intent = new Intent(HA_login.this, HA_monitor.class);
+                intent.putExtra("id", id);
+                intent.putExtra("name", name);
+                startActivity(intent);
+                finish();
+                overridePendingTransition(R.anim.appear_from_right_300, R.anim.disappear_to_left_300);
+            }
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+    }
+
 }
