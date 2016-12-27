@@ -12,15 +12,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6c9b394c-da03-448d-b3d9-9b3c8e77cb0a" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/H2OAdmin/H2OAdmin.apk" afterPath="$PROJECT_DIR$/out/production/H2OAdmin/H2OAdmin.apk" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/H2OAdmin/H2OAdmin.unaligned.apk" afterPath="$PROJECT_DIR$/out/production/H2OAdmin/H2OAdmin.unaligned.apk" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/H2OAdmin/healthcare/demand/H2O_Admin/R$id.class" afterPath="$PROJECT_DIR$/out/production/H2OAdmin/healthcare/demand/H2O_Admin/R$id.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/H2OAdmin/healthcare/demand/H2O_Admin/R$layout.class" afterPath="$PROJECT_DIR$/out/production/H2OAdmin/healthcare/demand/H2O_Admin/R$layout.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/H2OAdmin/healthcare/demand/H2O_Admin/R$string.class" afterPath="$PROJECT_DIR$/out/production/H2OAdmin/healthcare/demand/H2O_Admin/R$string.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AndroidManifest.xml" afterPath="$PROJECT_DIR$/AndroidManifest.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/layout-land/ha_app_cnt.xml" afterPath="$PROJECT_DIR$/res/layout-land/ha_app_cnt.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/healthcare/demand/H2O_Admin/HA_appCnt.java" afterPath="$PROJECT_DIR$/src/healthcare/demand/H2O_Admin/HA_appCnt.java" />
     </list>
     <ignored path="H2O Admin.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -729,7 +721,14 @@
       <option name="project" value="LOCAL" />
       <updated>1482806139336</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="-ha_app_cnt.xml 완성&#10;-ha_monitor.xml에서 +버튼 누르면 Dialog 뜨게 했어욤&#10;">
+      <created>1482811443099</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1482811443099</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -801,7 +800,8 @@
     <MESSAGE value="." />
     <MESSAGE value="round_corner.xml 이요!" />
     <MESSAGE value="round_corner.xml (22)" />
-    <option name="LAST_COMMIT_MESSAGE" value="round_corner.xml (22)" />
+    <MESSAGE value="-ha_app_cnt.xml 완성&#10;-ha_monitor.xml에서 +버튼 누르면 Dialog 뜨게 했어욤&#10;" />
+    <option name="LAST_COMMIT_MESSAGE" value="-ha_app_cnt.xml 완성&#10;-ha_monitor.xml에서 +버튼 누르면 Dialog 뜨게 했어욤&#10;" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
