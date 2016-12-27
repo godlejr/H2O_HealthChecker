@@ -7,6 +7,7 @@ import android.content.SharedPreferences;
 import android.content.res.Resources;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.EditText;
@@ -109,7 +110,7 @@ public class HA_login extends Activity {
             }
         });
 
-        ll_save.setOnTouchListener(new View.OnTouchListener() {
+        login.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
                 switch (event.getAction()){
@@ -141,11 +142,12 @@ public class HA_login extends Activity {
         php = new PHPReader();
         php.addVariable("id", id);
         php.addVariable("password", pwd);
-        //php.addVariable("dbName", "ppg");
-        php.execute("http://1.234.63.165/h2ov2/login.php");
+        php.addVariable("dbName", "h2ov2");
+        php.execute("http://1.234.63.165/h2o/admin/login.php");
 
         try{
             if(php.get().trim().equalsIgnoreCase("No Such User Found")){
+                Log.i("pddddd","dsfddf");
                 Toast.makeText(context, "ID/PW를 확인해주세요", Toast.LENGTH_SHORT).show();
             }else{
                 Toast.makeText(context, "로그인 되었습니다", Toast.LENGTH_SHORT).show();
@@ -157,7 +159,7 @@ public class HA_login extends Activity {
                     JSONObject jo = ja.getJSONObject(i);
                     name = jo.getString("name");
                 }
-
+                Log.i("pddddd",name);
                 Intent intent = new Intent(HA_login.this, HA_monitor.class);
                 intent.putExtra("id", id);
                 intent.putExtra("name", name);
