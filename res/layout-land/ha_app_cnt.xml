@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_height="300dp"
+    android:background="@drawable/round_corner"
+    android:layout_width="match_parent">
+
+    <TextView
+        android:text="앱 사용 횟수"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView2"
+        android:textSize="65px"
+        android:textColor="#5c5c5c"
+        android:gravity="center"
+        android:layout_marginTop="100px"
+        android:layout_marginBottom="100px"
+        android:textStyle="bold" />
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:background="#a0a0a0">
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="80px">
+
+            <TextView
+                android:text="힐링 사운드"
+                android:layout_width="270px"
+                android:layout_height="match_parent"
+                android:id="@+id/tv_title_cnt_healing"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:background="#f2f2f2"
+                android:layout_marginRight="1px"
+                android:layout_marginTop="1px"
+                android:textColor="#898989"
+                android:textStyle="bold"
+                android:layout_marginBottom="1px" />
+
+            <TextView
+                android:text="JEJU 힐링 사운드"
+                android:layout_width="270px"
+                android:layout_height="match_parent"
+                android:id="@+id/tv_title_cnt_jeju"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:background="#f2f2f2"
+                android:layout_marginRight="1px"
+                android:layout_marginTop="1px"
+                android:textColor="#898989"
+                android:textStyle="bold"
+                android:layout_marginBottom="1px" />
+
+            <TextView
+                android:text="호흡조절법"
+                android:layout_width="270px"
+                android:layout_height="match_parent"
+                android:id="@+id/tv_title_cnt_breath"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:background="#f2f2f2"
+                android:layout_marginRight="1px"
+                android:layout_marginTop="1px"
+                android:textColor="#898989"
+                android:textStyle="bold"
+                android:layout_marginBottom="1px" />
+
+            <TextView
+                android:text="명상법"
+                android:layout_width="270px"
+                android:layout_height="match_parent"
+                android:id="@+id/tv_title_cnt_meditation"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:background="#f2f2f2"
+                android:layout_marginRight="1px"
+                android:layout_marginTop="1px"
+                android:textColor="#898989"
+                android:textStyle="bold"
+                android:layout_marginBottom="1px" />
+
+            <TextView
+                android:text="다시 생각하기"
+                android:layout_width="270px"
+                android:layout_height="match_parent"
+                android:id="@+id/tv_title_cnt_rethink"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:background="#f2f2f2"
+                android:layout_marginRight="1px"
+                android:layout_marginTop="1px"
+                android:textColor="#898989"
+                android:textStyle="bold"
+                android:layout_marginBottom="1px" />
+
+            <TextView
+                android:text="Smoody"
+                android:layout_width="270px"
+                android:layout_height="match_parent"
+                android:id="@+id/tv_title_cnt_smoody"
+                android:layout_weight="1"
+                android:background="#f2f2f2"
+                android:gravity="center"
+                android:layout_marginTop="1px"
+                android:textColor="#898989"
+                android:textStyle="bold"
+                android:layout_marginBottom="1px" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="151px">
+
+            <TextView
+                android:text="2회"
+                android:layout_width="250px"
+                android:layout_height="150px"
+                android:id="@+id/tv_cnt_healing"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:textColor="#5c5c5c"
+                android:background="#f9f9f9"
+                android:layout_marginBottom="1px"
+                android:layout_marginRight="1px" />
+
+            <TextView
+                android:text="2회"
+                android:layout_width="250px"
+                android:layout_height="150px"
+                android:id="@+id/tv_cnt_jeju"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:textColor="#5c5c5c"
+                android:background="#f9f9f9"
+                android:layout_marginBottom="1px"
+                android:layout_marginRight="1px" />
+
+            <TextView
+                android:text="2회"
+                android:layout_width="250px"
+                android:layout_height="150px"
+                android:id="@+id/tv_cnt_breath"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:textColor="#5c5c5c"
+                android:background="#f9f9f9"
+                android:layout_marginBottom="1px"
+                android:layout_marginRight="1px" />
+
+            <TextView
+                android:text="2회"
+                android:layout_width="250px"
+                android:layout_height="150px"
+                android:id="@+id/tv_cnt_meditation"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:textColor="#5c5c5c"
+                android:background="#f9f9f9"
+                android:layout_marginBottom="1px"
+                android:layout_marginRight="1px" />
+
+            <TextView
+                android:text="2회"
+                android:layout_width="250px"
+                android:layout_height="150px"
+                android:id="@+id/tv_cnt_smoody"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:textColor="#5c5c5c"
+                android:background="#f9f9f9"
+                android:layout_marginBottom="1px"
+                android:layout_marginRight="1px" />
+
+            <TextView
+                android:text="2회"
+                android:layout_width="250px"
+                android:layout_height="150px"
+                android:id="@+id/tv_cnt_rethink"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:textColor="#5c5c5c"
+                android:background="#f9f9f9" />
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <TextView
+        android:text="닫기"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/tv_cnt_close"
+        android:gravity="center"
+        android:textSize="45px"
+        android:textColor="#4c5f89" />
+</LinearLayout>
