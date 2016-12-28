@@ -3,6 +3,7 @@ package healthcare.demand.H2O_Admin;
 import android.app.Activity;
 import android.content.Context;
 import android.content.res.Resources;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.text.Layout;
 import android.util.Log;
@@ -22,39 +23,40 @@ import android.widget.ListView;
 import android.widget.ScrollView;
 import android.widget.TextView;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
+
+import java.net.URLConnection;
 import java.util.ArrayList;
 import java.util.List;
 
+import etc.PHPReader;
+import etc.URLConnector;
 import etc.ViewMethod;
 import etc.ViewMethod_l;
 import etc.Views;
 
-public class HA_message extends Activity implements View.OnClickListener{
-    /**
-     * Called when the activity is first created.
-     */
-    //
+public class HA_message extends Activity implements View.OnClickListener {
     Context context;
     Resources res;
-    //
+
     ViewMethod vm = new ViewMethod();
+    ViewMethod_l vml;
     Views vs = new Views();
-    //
+
+    LinearLayout bot;
     ImageView back;
     TextView title;
-    //    ScrollView sv;
-//    LinearLayout dynamic;
-    LinearLayout bot;
-    EditText message;
     TextView send;
-    ViewMethod_l vml;
+    EditText message;
+    ListView lv;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
-                WindowManager.LayoutParams.FLAG_FULLSCREEN | WindowManager.LayoutParams.FLAG_LAYOUT_IN_SCREEN );
+                WindowManager.LayoutParams.FLAG_FULLSCREEN | WindowManager.LayoutParams.FLAG_LAYOUT_IN_SCREEN);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
 
 
@@ -67,9 +69,8 @@ public class HA_message extends Activity implements View.OnClickListener{
 
     @Override
     public void onClick(View v) {
-        if(v.getId() == R.id.send){
+        if (v.getId() == R.id.send) {
             message.setText("");
-
 
         }
     }
@@ -80,15 +81,14 @@ public class HA_message extends Activity implements View.OnClickListener{
 
         back = (ImageView) findViewById(R.id.back);
         title = (TextView) findViewById(R.id.title);
-//        sv = (ScrollView)findViewById(R.id.sv);
-//        dynamic = (LinearLayout)findViewById(R.id.dynamic);
+
         bot = (LinearLayout) findViewById(R.id.bot);
         message = (EditText) findViewById(R.id.message);
         send = (TextView) findViewById(R.id.send);
 
         vm.resizeSingleView(back, res, R.drawable.icon_back, "frame", 150, 150);
         vm.reformSingleTextBasedView(context, title, 60, "bold");
-//        vm.resizeSingleView(sv, "frame", 0, 0, 0, 150, 0, 200);
+
         vm.resizeSingleView(bot, "linear", 1080, 200, 0, 0, 0, 0, 50, 30, 50, 30);
         vm.reformSingleTextBasedView(context, message, 30, "regular", "linear", 800, 140, 0, 0, 0, 0, 30, 20, 30, 20);
         vm.reformSingleTextBasedView(context, send, 45, "bold", "linear", 180, 140);
@@ -101,33 +101,16 @@ public class HA_message extends Activity implements View.OnClickListener{
 
     private void init() {
         vml = new ViewMethod_l();
-        ListView lv = (ListView) findViewById(R.id.lv_msg);
+        lv = (ListView) findViewById(R.id.lv_msg);
         send.setOnClickListener(this);
 
-
-        /******************** 테스트용 리스트 ******************/
-        ArrayList<HA_message_item> list = new ArrayList<>();
-        list.add(new HA_message_item("2016년 8월 9일 월요일", true));
-        list.add(new HA_message_item("장기원", "아이디", "time", "스무디를 사용하면서~~~~~~~~~\n~~~~~~~~~~~~~~~~\n~~~~~~~~~~~~~~~\n~~~~~~~~~~~~~~", "R", false));
-        list.add(new HA_message_item("장기원", "아이디", "time", "스무디에서 문의 버튼을~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~", "R", false));
-        list.add(new HA_message_item("2016년 10월 9일 월요일", true));
-        list.add(new HA_message_item("name", "id", "time", "어떻게 하나요?", "S", false));
-
-        lv.setAdapter(new Adapter(list));
-        /*****************************************************/
+        connectDB();
 
     }
 
     class Adapter extends BaseAdapter {
         LayoutInflater inflater;
         ArrayList<HA_message_item> list = new ArrayList<>();
-
-//
-//        public Adapter(ArrayList<HA_message_item> list) {
-//            this.list = list;
-//            inflater = (LayoutInflater) getSystemService(LAYOUT_INFLATER_SERVICE);
-//        }
-
 
         public Adapter(ArrayList<HA_message_item> list) {
             this.list = list;
@@ -160,27 +143,36 @@ public class HA_message extends Activity implements View.OnClickListener{
                 sector.setText(list.get(position).getTitle());
 
                 vml.reformSingleTextBasedView(convertView.getContext(), sector, 34, "regular", "linear", 380, 40);
-
             } else {
-                if (list.get(position).getFlag().equals("R")) { // receive
+                if (!list.get(position).getSenderId().equals("ddd")) { // admin이 받은거
                     convertView = inflater.inflate(R.layout.ha_message_box_receive, parent, false);
                     content = (TextView) convertView.findViewById(R.id.tv_msg_receive);
                     time = (TextView) convertView.findViewById(R.id.tv_msg_time_receive);
                     name = (TextView) convertView.findViewById(R.id.tv_msg_name);
 
-                    String userName = list.get(position).getName() + "(" + list.get(position).getId() + ")";
+                    String userName = list.get(position).getSenderId() + "(" + list.get(position).getUser() + ")";
                     name.setText(userName);
                     vml.reformSingleTextBasedView(convertView.getContext(), name, 43, "regular");
 
-                } else if (list.get(position).getFlag().equals("S")) {// send
+                } else {// send
                     convertView = inflater.inflate(R.layout.ha_message_box_send, parent, false);
 
                     content = (TextView) convertView.findViewById(R.id.tv_msg_send);
                     time = (TextView) convertView.findViewById(R.id.tv_msg_time_send);
                 }
 
-                content.setText(list.get(position).getContent());
-                time.setText(list.get(position).getTime());
+                content.setText(list.get(position).getMsg());
+
+
+
+                //int idx = list.get(position).getDate().indexOf("");
+
+
+               String dateStr[] = list.get(position).getDate().split(" ");
+                String d = dateStr[0]; /// 날짜
+                String t = dateStr[1]; // 시간
+
+                time.setText(t);
 
                 content.setMaxWidth(300);
 
@@ -202,11 +194,12 @@ public class HA_message extends Activity implements View.OnClickListener{
 
     }
 
-
-    /********************** Message Item ********************/
+    /********************
+     * Message Item
+     ********************/
 
     public class HA_message_item {
-        String name, id, time, flag, content;
+        String senderId, receiverId, date, msg, user;
         boolean section;
         String title;
 
@@ -216,55 +209,105 @@ public class HA_message extends Activity implements View.OnClickListener{
             this.section = section;
         }
 
-        public HA_message_item(String name, String id, String time, String content, String flag, boolean section) {
-            this.flag = flag;
-            this.name = name;
-            this.id = id;
-            this.time = time;
-            this.content = content;
+        public HA_message_item(String senderId, String date, String msg, String user, boolean section) {
+            this.senderId = senderId;
+            this.receiverId = receiverId;
+            this.date = date;
+            this.msg = msg;
             this.section = section;
+            this.user = user;
         }
 
-        public String getContent() {
-            return content;
+        public String getUser() {
+            return user;
+        }
+
+        public void setUser(String user) {
+            this.user = user;
+        }
+
+        public String getSenderId() {
+            return senderId;
+        }
+
+        public void setSenderId(String senderId) {
+            this.senderId = senderId;
+        }
+
+        public String getReceiverId() {
+            return receiverId;
+        }
+
+        public void setReceiverId(String receiverId) {
+            this.receiverId = receiverId;
+        }
+
+        public String getDate() {
+            return date;
+        }
+
+        public void setDate(String date) {
+            this.date = date;
+        }
+
+        public String getMsg() {
+            return msg;
+        }
+
+        public void setMsg(String msg) {
+            this.msg = msg;
         }
 
         public boolean isSection() {
             return section;
         }
 
-
-        public String getName() {
-            return name;
+        public void setSection(boolean section) {
+            this.section = section;
         }
-
-        public void setName(String name) {
-            this.name = name;
-        }
-
-        public String getId() {
-            return id;
-        }
-
-        public void setId(String id) {
-            this.id = id;
-        }
-
-        public String getTime() {
-            return time;
-        }
-
-
-        public String getFlag() {
-            return flag;
-        }
-
-
 
         public String getTitle() {
             return title;
         }
 
+        public void setTitle(String title) {
+            this.title = title;
+        }
+    }
+
+    private void connectDB() {
+        ArrayList<HA_message_item> list = new ArrayList<>();
+
+        PHPReader php = new PHPReader();
+        String url = "http://1.234.63.165/h2o/admin/select_msg.php";
+        php.addVariable("id", "ddd");
+        php.addVariable("dbName", "h2ov2");
+        php.execute(url);
+
+        try {
+            JSONObject obj = new JSONObject(php.get().trim());
+            JSONArray arr = obj.getJSONArray("results");
+
+            for (int i = 0; i < arr.length(); i++) {
+                JSONObject jObj = arr.getJSONObject(i);
+                Log.e("jObj", jObj.getString("msg"));
+
+                String senderId = jObj.get("senderId").toString(); // receiverId
+                //String receiverId = jObj.get("receiverId").toString();
+                String userName = jObj.get("name").toString();
+                String date = jObj.get("datetime").toString();
+                String msg = jObj.get("msg").toString();
+
+
+                HA_message_item item = new HA_message_item(senderId, date, msg, userName, false);
+                list.add(item);
+            }
+
+            lv.setAdapter(new Adapter(list));
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
 
     }
 
