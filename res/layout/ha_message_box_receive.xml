@@ -23,8 +23,7 @@
             android:id="@+id/tv_msg_receive"
             android:background="@drawable/round_corner"
             android:padding="10dp"
-            android:textColor="#414141"
-           />
+            android:textColor="#414141" />
 
         <TextView
             android:text="PM 5:28"
