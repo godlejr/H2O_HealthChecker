@@ -62,7 +62,9 @@
             android:layout_gravity="center_vertical"
             android:textSize="26px"
             android:textColor="#5c5c5c"
-            android:gravity="center_vertical"/>
+            android:gravity="center_vertical"
+
+           />
 
         <TextView
             android:text="전송"

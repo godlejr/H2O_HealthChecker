@@ -44,7 +44,9 @@
             android:textColorHint="#b4bdc2"
             tools:ignore="HardcodedText"
             android:textSize="28px"
-            android:textColor="#4c5f89" />
+            android:textColor="#4c5f89"
+            android:imeOptions="flagNoExtractUi"/>
+
     </LinearLayout>
 
     <LinearLayout
@@ -77,7 +79,10 @@
             android:textColorHint="#b4bdc2"
             tools:ignore="DuplicateIds,HardcodedText"
             android:textSize="28px"
-            android:textColor="#4c5f89" />
+            android:textColor="#4c5f89"
+            android:imeOptions="flagNoExtractUi"
+
+            />
     </LinearLayout>
 
     <LinearLayout
