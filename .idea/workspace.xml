@@ -11,16 +11,17 @@
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6c9b394c-da03-448d-b3d9-9b3c8e77cb0a" name="Default" comment=".">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/layout/ha_message_date_sector.xml" />
+    <list default="true" id="6c9b394c-da03-448d-b3d9-9b3c8e77cb0a" name="Default" comment="HA_mess">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/healthcare/demand/H2O_Admin/HA_message_item.java" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/H2OAdmin/H2OAdmin.apk" afterPath="$PROJECT_DIR$/out/production/H2OAdmin/H2OAdmin.apk" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/H2OAdmin/H2OAdmin.unaligned.apk" afterPath="$PROJECT_DIR$/out/production/H2OAdmin/H2OAdmin.unaligned.apk" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/H2OAdmin/healthcare/demand/H2O_Admin/HA_message.class" afterPath="$PROJECT_DIR$/out/production/H2OAdmin/healthcare/demand/H2O_Admin/HA_message.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/H2OAdmin/healthcare/demand/H2O_Admin/R$id.class" afterPath="$PROJECT_DIR$/out/production/H2OAdmin/healthcare/demand/H2O_Admin/R$id.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/H2OAdmin/healthcare/demand/H2O_Admin/R$layout.class" afterPath="$PROJECT_DIR$/out/production/H2OAdmin/healthcare/demand/H2O_Admin/R$layout.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/H2OAdmin/healthcare/demand/H2O_Admin/R$string.class" afterPath="$PROJECT_DIR$/out/production/H2OAdmin/healthcare/demand/H2O_Admin/R$string.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/layout/ha_message_box_receive.xml" afterPath="$PROJECT_DIR$/res/layout/ha_message_box_receive.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/layout/ha_message_date_sector.xml" afterPath="$PROJECT_DIR$/res/layout/ha_message_date_sector.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/healthcare/demand/H2O_Admin/HA_message.java" afterPath="$PROJECT_DIR$/src/healthcare/demand/H2O_Admin/HA_message.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/healthcare/demand/H2O_Admin/HA_message_item.java" afterPath="$PROJECT_DIR$/src/healthcare/demand/H2O_Admin/HA_message_item.java" />
     </list>
     <ignored path="H2O Admin.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -42,66 +43,22 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="HA_message.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="HA_message.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/healthcare/demand/H2O_Admin/HA_message.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1330">
-              <caret line="169" column="25" selection-start-line="169" selection-start-column="25" selection-end-line="169" selection-end-column="25" />
+            <state relative-caret-position="503">
+              <caret line="66" column="0" selection-start-line="66" selection-start-column="0" selection-end-line="66" selection-end-column="0" />
               <folding>
-                <marker date="1482886958708" expanded="false" signature="1101:1141" ph="..." />
-                <marker date="1482886958708" expanded="false" signature="3624:3821" ph="..." />
-                <marker date="1482886958708" expanded="false" signature="6845:7677" ph="..." />
+                <element signature="imports" expanded="true" />
+                <element signature="method#defineEvents#0;class#HA_message#0" expanded="false" />
+                <element signature="class#Adapter#0;class#HA_message#0" expanded="false" />
+                <element signature="e#3608#3610#0" expanded="false" />
+                <element signature="method#Adapter#0;class#Adapter#0;class#HA_message#0" expanded="false" />
+                <element signature="e#4253#4254#0" expanded="true" />
+                <element signature="e#4292#4293#0" expanded="true" />
+                <element signature="class#HA_message_item#0;class#HA_message#0" expanded="false" />
               </folding>
             </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="HA_message_item.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/healthcare/demand/H2O_Admin/HA_message_item.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ha_message_date_sector.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/res/layout/ha_message_date_sector.xml">
-          <provider editor-type-id="text-editor">
-            <state relative-caret-position="50">
-              <caret line="2" column="35" selection-start-line="2" selection-start-column="35" selection-end-line="2" selection-end-column="35" />
-              <folding />
-            </state>
-          </provider>
-          <provider selected="true" editor-type-id="android-designer2">
-            <state />
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ha_message_box_receive.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/res/layout/ha_message_box_receive.xml">
-          <provider editor-type-id="text-editor">
-            <state relative-caret-position="625">
-              <caret line="25" column="40" selection-start-line="25" selection-start-column="40" selection-end-line="25" selection-end-column="40" />
-              <folding />
-            </state>
-          </provider>
-          <provider selected="true" editor-type-id="android-designer2">
-            <state />
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ha_message_box_send.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/res/layout/ha_message_box_send.xml">
-          <provider editor-type-id="text-editor">
-            <state relative-caret-position="100">
-              <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-          <provider selected="true" editor-type-id="android-designer2">
-            <state />
           </provider>
         </entry>
       </file>
@@ -113,6 +70,19 @@
               <folding>
                 <marker date="1482826512596" expanded="false" signature="2707:3356" ph="..." />
               </folding>
+            </state>
+          </provider>
+          <provider selected="true" editor-type-id="android-designer2">
+            <state />
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ha_message_date_sector.xml" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/res/layout/ha_message_date_sector.xml">
+          <provider editor-type-id="text-editor">
+            <state relative-caret-position="150">
+              <caret line="8" column="34" selection-start-line="8" selection-start-column="33" selection-end-line="8" selection-end-column="34" />
+              <folding />
             </state>
           </provider>
           <provider selected="true" editor-type-id="android-designer2">
@@ -177,9 +147,9 @@
         <option value="$PROJECT_DIR$/res/drawable/selector.xml" />
         <option value="$PROJECT_DIR$/res/layout/ha_message_date.xml" />
         <option value="$PROJECT_DIR$/res/layout/ha_message_box_receive.xml" />
+        <option value="$PROJECT_DIR$/src/healthcare/demand/H2O_Admin/HA_message.java" />
         <option value="$PROJECT_DIR$/res/layout/ha_message_date_sector.xml" />
         <option value="$PROJECT_DIR$/src/healthcare/demand/H2O_Admin/HA_message_item.java" />
-        <option value="$PROJECT_DIR$/src/healthcare/demand/H2O_Admin/HA_message.java" />
       </list>
     </option>
   </component>
@@ -189,9 +159,9 @@
     <detection-done>true</detection-done>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="902" />
-    <option name="y" value="46" />
-    <option name="width" value="1624" />
+    <option name="x" value="444" />
+    <option name="y" value="67" />
+    <option name="width" value="1822" />
     <option name="height" value="1312" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -312,24 +282,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="H2O Admin" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="h2o" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="res" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="drawable" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
       <pane id="Scratches" />
@@ -346,7 +298,7 @@
     <property name="last_opened_file_path" value="$USER_HOME$/Desktop/인수인계/인수인계/개발/01_H2O/H2O_V2/H2OV2" />
     <property name="device.picker.selection" value="Nexus_4_API_24" />
     <property name="UI_DESIGNER_EDITOR_MODE.NlPaletteManager-NlPreviewForm.SHOW" value="false" />
-    <property name="UI_DESIGNER_EDITOR_MODE.NlPropertiesWindowManager-NlEditorPanel.WIDTH" value="175" />
+    <property name="UI_DESIGNER_EDITOR_MODE.NlPropertiesWindowManager-NlEditorPanel.WIDTH" value="561" />
     <property name="UI_DESIGNER_EDITOR_MODE.NlPaletteManager-NlEditorPanel.WIDTH" value="291" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth0" value="359" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder0" value="0" />
@@ -808,7 +760,14 @@
       <option name="project" value="LOCAL" />
       <updated>1482829588484</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary=".">
+      <created>1482886965873</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1482886965873</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -824,8 +783,8 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="902" y="46" width="1624" height="1312" extended-state="0" />
-    <editor active="true" />
+    <frame x="444" y="67" width="1822" height="1312" extended-state="0" />
+    <editor active="false" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32925764" sideWeight="0.49569893" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -838,13 +797,13 @@
       <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.38367346" sideWeight="0.49784946" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32995737" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.15755102" sideWeight="0.49784946" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14950761" sideWeight="0.7080645" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.13607879" sideWeight="0.7080645" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3467279" sideWeight="0.50860214" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19250646" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18041237" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24980016" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Android Model" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
@@ -870,7 +829,7 @@
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.29061225" sideWeight="0.29193547" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.28995633" sideWeight="0.29193547" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.38367346" sideWeight="0.49784946" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -891,11 +850,11 @@
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32995737" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.15755102" sideWeight="0.49784946" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33362445" sideWeight="0.7080645" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.13607879" sideWeight="0.7080645" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3467279" sideWeight="0.50860214" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.13069545" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22737686" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
@@ -914,13 +873,13 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="test" />
-    <MESSAGE value="." />
     <MESSAGE value="round_corner.xml 이요!" />
     <MESSAGE value="round_corner.xml (22)" />
     <MESSAGE value="-ha_app_cnt.xml 완성&#10;-ha_monitor.xml에서 +버튼 누르면 Dialog 뜨게 했어욤&#10;" />
     <MESSAGE value="HA_monitor 안에 어댑터 있어요&#10;DAO는 HA_monitor_item이ㅇㅕ&#10;" />
     <MESSAGE value="(1)HA_message 완성&#10;(2)ha_message 완성&#10; ( send box , receive box xml 따로있음)&#10; (3) drawable -&gt; message용 round_corner 추가&#10; &#10;" />
-    <option name="LAST_COMMIT_MESSAGE" value="(1)HA_message 완성&#10;(2)ha_message 완성&#10; ( send box , receive box xml 따로있음)&#10; (3) drawable -&gt; message용 round_corner 추가&#10; &#10;" />
+    <MESSAGE value="." />
+    <option name="LAST_COMMIT_MESSAGE" value="." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -965,9 +924,14 @@
         <state relative-caret-position="1007">
           <caret line="65" column="0" selection-start-line="65" selection-start-column="0" selection-end-line="65" selection-end-column="0" />
           <folding>
-            <marker date="1482886958708" expanded="false" signature="1101:1141" ph="..." />
-            <marker date="1482886958708" expanded="false" signature="3624:3821" ph="..." />
-            <marker date="1482886958708" expanded="false" signature="6845:7677" ph="..." />
+            <element signature="imports" expanded="true" />
+            <element signature="method#defineEvents#0;class#HA_message#0" expanded="false" />
+            <element signature="class#Adapter#0;class#HA_message#0" expanded="false" />
+            <element signature="e#3608#3610#0" expanded="false" />
+            <element signature="method#Adapter#0;class#Adapter#0;class#HA_message#0" expanded="false" />
+            <element signature="e#4253#4254#0" expanded="true" />
+            <element signature="e#4292#4293#0" expanded="true" />
+            <element signature="class#HA_message_item#0;class#HA_message#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1039,9 +1003,14 @@
         <state relative-caret-position="1007">
           <caret line="65" column="0" selection-start-line="65" selection-start-column="0" selection-end-line="65" selection-end-column="0" />
           <folding>
-            <marker date="1482886958708" expanded="false" signature="1101:1141" ph="..." />
-            <marker date="1482886958708" expanded="false" signature="3624:3821" ph="..." />
-            <marker date="1482886958708" expanded="false" signature="6845:7677" ph="..." />
+            <element signature="imports" expanded="true" />
+            <element signature="method#defineEvents#0;class#HA_message#0" expanded="false" />
+            <element signature="class#Adapter#0;class#HA_message#0" expanded="false" />
+            <element signature="e#3608#3610#0" expanded="false" />
+            <element signature="method#Adapter#0;class#Adapter#0;class#HA_message#0" expanded="false" />
+            <element signature="e#4253#4254#0" expanded="true" />
+            <element signature="e#4292#4293#0" expanded="true" />
+            <element signature="class#HA_message_item#0;class#HA_message#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1322,19 +1291,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/res/layout/ha_message.xml">
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="975">
-          <caret line="39" column="39" selection-start-line="39" selection-start-column="39" selection-end-line="39" selection-end-column="39" />
-          <folding>
-            <marker date="1482826512596" expanded="false" signature="2707:3356" ph="..." />
-          </folding>
-        </state>
-      </provider>
-      <provider selected="true" editor-type-id="android-designer2">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/res/drawable/selector.xml" />
     <entry file="file://$PROJECT_DIR$/res/layout/ha_message_box_receive.xml">
       <provider editor-type-id="text-editor">
@@ -1358,10 +1314,40 @@
         <state />
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/healthcare/demand/H2O_Admin/HA_message.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="503">
+          <caret line="66" column="0" selection-start-line="66" selection-start-column="0" selection-end-line="66" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#defineEvents#0;class#HA_message#0" expanded="false" />
+            <element signature="class#Adapter#0;class#HA_message#0" expanded="false" />
+            <element signature="e#3608#3610#0" expanded="false" />
+            <element signature="method#Adapter#0;class#Adapter#0;class#HA_message#0" expanded="false" />
+            <element signature="e#4253#4254#0" expanded="true" />
+            <element signature="e#4292#4293#0" expanded="true" />
+            <element signature="class#HA_message_item#0;class#HA_message#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/layout/ha_message.xml">
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="975">
+          <caret line="39" column="39" selection-start-line="39" selection-start-column="39" selection-end-line="39" selection-end-column="39" />
+          <folding>
+            <marker date="1482826512596" expanded="false" signature="2707:3356" ph="..." />
+          </folding>
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="android-designer2">
+        <state />
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/res/layout/ha_message_date_sector.xml">
       <provider editor-type-id="text-editor">
-        <state relative-caret-position="50">
-          <caret line="2" column="35" selection-start-line="2" selection-start-column="35" selection-end-line="2" selection-end-column="35" />
+        <state relative-caret-position="150">
+          <caret line="8" column="34" selection-start-line="8" selection-start-column="33" selection-end-line="8" selection-end-column="34" />
           <folding />
         </state>
       </provider>
@@ -1374,18 +1360,6 @@
         <state relative-caret-position="150">
           <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/healthcare/demand/H2O_Admin/HA_message.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1330">
-          <caret line="169" column="25" selection-start-line="169" selection-start-column="25" selection-end-line="169" selection-end-column="25" />
-          <folding>
-            <marker date="1482886958708" expanded="false" signature="1101:1141" ph="..." />
-            <marker date="1482886958708" expanded="false" signature="3624:3821" ph="..." />
-            <marker date="1482886958708" expanded="false" signature="6845:7677" ph="..." />
-          </folding>
         </state>
       </provider>
     </entry>
