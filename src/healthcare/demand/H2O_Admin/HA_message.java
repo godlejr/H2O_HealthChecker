@@ -89,7 +89,7 @@ public class HA_message extends Activity {
 
         /******************** 테스트용 리스트 ******************/
         ArrayList<HA_message_item> list = new ArrayList<>();
-        list.add(new HA_message_item("장기원", "아이디", "date", "time", "스무디를 사용하면서~~~~~~~~~\n~~~~~~~~~~~~~~~~\n~~~~~~~~~~~~~~~\n~~~~~~~~~~~~~~", "R"));
+        list.add(new HA_message_item("장기원", "아이디", "date", "time", "스무를 사용하면서~~~~~~~~~\n~~~~~~~~~~~~~~~~\n~~~~~~~~~~~~~~~\n~~~~~~~~~~~~~~", "R"));
         list.add(new HA_message_item("장기원", "아이디", "date", "time", "스무디에서 문의 버튼을~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~", "R"));
         list.add(new HA_message_item("name", "id", "date", "time", "어떻게 하나요?", "S"));
 
