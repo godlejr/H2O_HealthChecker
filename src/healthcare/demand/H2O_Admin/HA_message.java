@@ -144,17 +144,21 @@ public class HA_message extends Activity implements View.OnClickListener {
 
                 vml.reformSingleTextBasedView(convertView.getContext(), sector, 34, "regular", "linear", 380, 40);
             } else {
-                if (!list.get(position).getSenderId().equals("ddd")) { // admin이 받은거
+                Log.e("rc", list.get(position).getReceiverId());
+                Log.e("ad", getIntent().getStringExtra("adminId"));
+
+                if (list.get(position).getReceiverId().equals(getIntent().getStringExtra("adminId"))) { // admin이 받은거
                     convertView = inflater.inflate(R.layout.ha_message_box_receive, parent, false);
                     content = (TextView) convertView.findViewById(R.id.tv_msg_receive);
                     time = (TextView) convertView.findViewById(R.id.tv_msg_time_receive);
                     name = (TextView) convertView.findViewById(R.id.tv_msg_name);
 
-                    String userName = list.get(position).getSenderId() + "(" + list.get(position).getUser() + ")";
+                    String userName = list.get(position).getUser() + "(" + list.get(position).getSenderId() + ")";
+
                     name.setText(userName);
                     vml.reformSingleTextBasedView(convertView.getContext(), name, 43, "regular");
 
-                } else {// send
+                } else {// 보낸거
                     convertView = inflater.inflate(R.layout.ha_message_box_send, parent, false);
 
                     content = (TextView) convertView.findViewById(R.id.tv_msg_send);
@@ -209,7 +213,7 @@ public class HA_message extends Activity implements View.OnClickListener {
             this.section = section;
         }
 
-        public HA_message_item(String senderId, String date, String msg, String user, boolean section) {
+        public HA_message_item(String senderId, String receiverId, String date, String msg, String user, boolean section) {
             this.senderId = senderId;
             this.receiverId = receiverId;
             this.date = date;
@@ -280,9 +284,13 @@ public class HA_message extends Activity implements View.OnClickListener {
 
         PHPReader php = new PHPReader();
         String url = "http://1.234.63.165/h2o/admin/select_msg.php";
-        php.addVariable("id", "ddd");
+
+        php.addVariable("adminId", getIntent().getStringExtra("adminId"));
+        php.addVariable("userId", getIntent().getStringExtra("userId"));
         php.addVariable("dbName", "h2ov2");
         php.execute(url);
+
+        Log.e("msg", "user: " + getIntent().getStringExtra("userId") +" / admin : " + getIntent().getStringExtra("adminId"));
 
         try {
             JSONObject obj = new JSONObject(php.get().trim());
@@ -293,13 +301,13 @@ public class HA_message extends Activity implements View.OnClickListener {
                 Log.e("jObj", jObj.getString("msg"));
 
                 String senderId = jObj.get("senderId").toString(); // receiverId
-                //String receiverId = jObj.get("receiverId").toString();
+                String receiverId = jObj.get("receiverId").toString();
                 String userName = jObj.get("name").toString();
                 String date = jObj.get("datetime").toString();
                 String msg = jObj.get("msg").toString();
 
 
-                HA_message_item item = new HA_message_item(senderId, date, msg, userName, false);
+                HA_message_item item = new HA_message_item(senderId, receiverId, date, msg, userName, false);
                 list.add(item);
             }
 

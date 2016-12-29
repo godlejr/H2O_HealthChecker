@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.text.Layout;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -138,19 +139,19 @@ public class HA_monitor extends Activity implements View.OnClickListener {
 
                     list.add(new HA_monitor_item(String.valueOf(i+1), user_id, user_name, temp_ppg_stress + "(" + user_aa + ":" + int_aa_abs + ") / "+ user_hrv, user_sleep + " / " + user_stress, user_app_count + "회"));
                 }
-                lv.setAdapter(new LvAdaper(monitor_content_view.getContext(), list));
+                lv.setAdapter(new LvAdapter(monitor_content_view.getContext(), list));
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
-    class LvAdaper extends BaseAdapter implements View.OnClickListener {
+    class LvAdapter extends BaseAdapter implements View.OnClickListener {
         ArrayList<HA_monitor_item> list;
         LayoutInflater inflater;
         Context c;
 
-        public LvAdaper(Context c, ArrayList<HA_monitor_item> list) {
+        public LvAdapter(Context c, ArrayList<HA_monitor_item> list) {
             this.c = c;
             this.list = list;
             inflater = (LayoutInflater) getSystemService(LAYOUT_INFLATER_SERVICE);
@@ -176,14 +177,6 @@ public class HA_monitor extends Activity implements View.OnClickListener {
             if (convertView == null)
                 convertView = inflater.inflate(R.layout.ha_monitor_content_item, parent, false);
 
-//            TextView num = (TextView)convertView.findViewById(R.id.tv_num);
-//            TextView id = (TextView)convertView.findViewById(R.id.tv_id);
-//            TextView name = (TextView)convertView.findViewById(R.id.tv_name);
-//            TextView anb = (TextView)convertView.findViewById(R.id.tv_anb);
-//            TextView stress = (TextView)convertView.findViewById(R.id.tv_stress);
-//            TextView cnt = (TextView)convertView.findViewById(R.id.tv_cnt);
-//
-
 //       content
             ImageView iv_cnt = (ImageView) convertView.findViewById(R.id.iv_cnt);
             ImageView iv_msg = (ImageView) convertView.findViewById(R.id.iv_msg);
@@ -195,7 +188,6 @@ public class HA_monitor extends Activity implements View.OnClickListener {
             tv[11] = (TextView) convertView.findViewById(R.id.tv_stress);
             tv[12] = (TextView) convertView.findViewById(R.id.tv_cnt);
 
-
             tv[7].setText(list.get(position).getNum());
             tv[8].setText(list.get(position).getId());
             tv[9].setText(list.get(position).getName());
@@ -204,8 +196,19 @@ public class HA_monitor extends Activity implements View.OnClickListener {
             tv[12].setText(list.get(position).getCnt());
 
             iv_cnt.setOnClickListener(this);
-            iv_msg.setOnClickListener(this);
+            iv_msg.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent i = new Intent(v.getContext(), HA_message.class);
 
+                    i.putExtra("adminId", getIntent().getStringExtra("id"));
+                    i.putExtra("userId", list.get(position).getId());
+
+                    Log.e("user", list.get(position).getId() + " / " + getIntent().getStringExtra("id"));
+
+                    startActivity(i);
+                }
+            });
 
             vm.reformSingleTextBasedView(context, tv[7], 35, "regular", "linear", 138, 100);
             vm.reformSingleTextBasedView(context, tv[8], 35, "regular", "linear", 310, 100);
@@ -225,11 +228,17 @@ public class HA_monitor extends Activity implements View.OnClickListener {
             if (v.getId() == R.id.iv_cnt) {
                 Intent i = new Intent(v.getContext(), HA_appCnt.class);
                 startActivity(i);
-            } else if (v.getId() == R.id.iv_msg) {
-                Intent i = new Intent(v.getContext(), HA_message.class);
-                startActivity(i);
+//            } else if (v.getId() == R.id.iv_msg) {
+//                Intent i = new Intent(v.getContext(), HA_message.class);
+//
+//                i.putExtra("adminId", getIntent().getStringExtra("id"));
+//                i.putExtra("userId", tv[8].getText().toString());
+//
+//                Log.e("user", tv[8].getText().toString());
+//
+//                startActivity(i);
+//            }
             }
-
         }
     }
 
