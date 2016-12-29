@@ -26,7 +26,7 @@ import etc.ViewMethod_l;
  * Created by ㅇㅇ on 2016-12-26.
  */
 
-public class HA_monitor extends Activity implements View.OnClickListener {
+public class HA_monitor extends Activity {
     TextView[] tv = new TextView[17];
     ViewMethod_l vm = new ViewMethod_l();
     Context context;
@@ -60,13 +60,6 @@ public class HA_monitor extends Activity implements View.OnClickListener {
         initInclude();
     }
 
-    @Override
-    public void onClick(View v) {
-        if (v.getId() == R.id.iv_msg) {
-            Intent i = new Intent(v.getContext(), HA_message.class);
-            startActivity(i);
-        }
-    }
 
     private void initReform() {
         res = getResources();

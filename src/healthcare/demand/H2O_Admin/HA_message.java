@@ -275,7 +275,7 @@ public class HA_message extends Activity implements View.OnClickListener {
 
     private void insertMsg(){
         String senderId = getIntent().getStringExtra("adminId");
-        String receiverid = getIntent().getStringExtra("userId");
+        String receiverId = getIntent().getStringExtra("userId");
 
 
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
@@ -288,8 +288,9 @@ public class HA_message extends Activity implements View.OnClickListener {
         PHPReader php = new PHPReader();
         String url = "http://1.234.63.165/h2o/admin/insert_msg.php";
 
-        php.addVariable("adminId", getIntent().getStringExtra("adminId"));
-        php.addVariable("userId", getIntent().getStringExtra("userId"));
+        php.addVariable("adminId", senderId);
+        php.addVariable("userId", receiverId);
+        php.addVariable("datetime", date);
         php.addVariable("dbName", "h2ov2");
         php.addVariable("msg", message.getText().toString());
         php.execute(url);
