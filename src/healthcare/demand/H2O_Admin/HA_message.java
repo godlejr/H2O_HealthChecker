@@ -66,9 +66,7 @@ public class HA_message extends Activity implements View.OnClickListener {
         setContentView(R.layout.ha_message);
 
         adjustViews();
-        defineEvents();
         init();
-
 
     }
 
@@ -76,8 +74,6 @@ public class HA_message extends Activity implements View.OnClickListener {
     public void onClick(View v) {
         if (v.getId() == R.id.send) {
             insertMsg();
-            message.setText("");
-
         }
     }
 
@@ -287,9 +283,19 @@ public class HA_message extends Activity implements View.OnClickListener {
 
         Log.e("날짜,. 시간 ", date);
 
+        /***********************************************************************/
 
+        PHPReader php = new PHPReader();
+        String url = "http://1.234.63.165/h2o/admin/insert_msg.php";
 
+        php.addVariable("adminId", getIntent().getStringExtra("adminId"));
+        php.addVariable("userId", getIntent().getStringExtra("userId"));
+        php.addVariable("dbName", "h2ov2");
+        php.addVariable("msg", message.getText().toString());
+        php.execute(url);
 
+        /***********************************************************************/
+        message.setText("");
     }
 
 
@@ -301,8 +307,6 @@ public class HA_message extends Activity implements View.OnClickListener {
             return "오전";
 
     }
-
-
 
 
     /********************* Message Item    ********************/
