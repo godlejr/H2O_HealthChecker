@@ -5,15 +5,11 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Bundle;
-import android.text.Layout;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Adapter;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -109,8 +105,6 @@ public class HA_monitor extends Activity implements View.OnClickListener {
         try {
             if (php.get().trim().equalsIgnoreCase("No Such User Found")) {
             } else {
-                Toast.makeText(context, "test 되었습니다", Toast.LENGTH_SHORT).show();
-
                 JSONObject root = new JSONObject(php.get().trim());
                 JSONArray ja = root.getJSONArray("results");
 
@@ -128,6 +122,7 @@ public class HA_monitor extends Activity implements View.OnClickListener {
                     if (!user_aa.equals("")) {
                         temp_aa = (int) Double.parseDouble(user_aa);
                         int_aa_abs = Integer.toString(100 - temp_aa);
+                        user_aa = Integer.toString((int) Double.parseDouble(user_aa));
                     } else {
                         int_aa_abs = "";
                     }
@@ -135,6 +130,10 @@ public class HA_monitor extends Activity implements View.OnClickListener {
                         temp_ppg_stress = Integer.toString((int) Double.parseDouble(user_ppg_stress));
                     } else {
                         temp_ppg_stress = "";
+                    }
+
+                    if (!user_hrv.equals("")) {
+                        user_hrv = Integer.toString((int) Double.parseDouble(user_hrv));
                     }
 
                     list.add(new HA_monitor_item(String.valueOf(i + 1), user_id, user_name, temp_ppg_stress + "(" + user_aa + ":" + int_aa_abs + ") / " + user_hrv, user_sleep + " / " + user_stress, user_app_count + "회"));
@@ -198,8 +197,9 @@ public class HA_monitor extends Activity implements View.OnClickListener {
             iv_cnt.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-
-
+                    Intent i = new Intent(v.getContext(), HA_appCnt.class);
+                    i.putExtra("userId",list.get(position).getId());
+                    startActivity(i);
                 }
             });
 
@@ -210,8 +210,6 @@ public class HA_monitor extends Activity implements View.OnClickListener {
 
                     i.putExtra("adminId", getIntent().getStringExtra("id"));
                     i.putExtra("userId", list.get(position).getId());
-
-                    Log.e("user", list.get(position).getId() + " / " + getIntent().getStringExtra("id"));
 
                     startActivity(i);
                 }
@@ -250,6 +248,5 @@ public class HA_monitor extends Activity implements View.OnClickListener {
 
 
     }
-
 
 }
