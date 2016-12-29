@@ -120,8 +120,6 @@ public class HA_message extends Activity implements View.OnClickListener {
         readMsg();
 
 
-
-
     }
 
     class Adapter extends BaseAdapter {
@@ -189,12 +187,16 @@ public class HA_message extends Activity implements View.OnClickListener {
 
                 int hour = Integer.valueOf(t.split(":")[0]);
                 int minute = Integer.valueOf(t.split(":")[1]);
-                String am_pm = am_pm(hour);
+                String am_pm = am_pm(hour); // 오후
 
                 Log.e("hour", hour + " ");
                 Log.e("time", dateStr[1]);
 
-                t = am_pm + (hour-12) + ":" + minute;
+                if (hour > 12) {
+                    t = am_pm + (hour-12) + ":" + minute;
+                }else{
+                    t = am_pm + (hour) + ":" + minute;
+                }
                 time.setText(t);
 
                 Log.e("t", t);
@@ -235,79 +237,89 @@ public class HA_message extends Activity implements View.OnClickListener {
         try {
             str = php.get().trim();
 
-           if(!str.equals("No Such User Found")) {
+            if (!str.equals("No Such User Found")) {
 
-               JSONObject obj = new JSONObject(str);
-               JSONArray arr = obj.getJSONArray("results");
+                JSONObject obj = new JSONObject(str);
+                JSONArray arr = obj.getJSONArray("results");
 
-               for (int i = 0; i < arr.length(); i++) {
-                   JSONObject jObj = arr.getJSONObject(i);
-                   Log.e("jObj", jObj.getString("msg"));
+                for (int i = 0; i < arr.length(); i++) {
+                    JSONObject jObj = arr.getJSONObject(i);
+                    Log.e("jObj", jObj.getString("msg"));
 
-                   String senderId = jObj.get("senderId").toString(); // receiverId
-                   String receiverId = jObj.get("receiverId").toString();
-                   String userName = jObj.get("name").toString();
-                   String date = jObj.get("datetime").toString();
-                   String msg = jObj.get("msg").toString();
+                    String senderId = jObj.get("senderId").toString(); // receiverId
+                    String receiverId = jObj.get("receiverId").toString();
+                    String userName = jObj.get("name").toString();
+                    String date = jObj.get("datetime").toString();
+                    String msg = jObj.get("msg").toString();
 
 
-                   HA_message_item item = null;
+                    HA_message_item item = null;
 
-                   String date2 = date.split(" ")[0]; // 날짜
+                    String date2 = date.split(" ")[0]; // 날짜
 
-                   if (i == 0) {
-                       String dt = date.split(" ")[0];
-                       String dt2 = dt.split("-")[0] + "년 " + dt.split("-")[1] + "월 " + dt.split("-")[2] + "일";
+                    if (i == 0) {
+                        String dt = date.split(" ")[0];
+                        String dt2 = dt.split("-")[0] + "년 " + dt.split("-")[1] + "월 " + dt.split("-")[2] + "일";
 
-                       item = new HA_message_item(dt2, true);
-                       list.add(item);
+                        item = new HA_message_item(dt2, true);
+                        list.add(item);
 
-                       item = new HA_message_item(senderId, receiverId, date, msg, userName, false);
-                   } else {
-                       String prevDate = arr.getJSONObject(i - 1).getString("datetime");
-                       String date3 = prevDate.split(" ")[0]; // 이전 날짜
+                        item = new HA_message_item(senderId, receiverId, date, msg, userName, false);
+                    } else {
+                        String prevDate = arr.getJSONObject(i - 1).getString("datetime");
+                        String date3 = prevDate.split(" ")[0]; // 이전 날짜
 
-                       if (!date2.equals(date3)) {
+                        if (!date2.equals(date3)) {
                             String dt2 = date2.split("-")[0] + "년 " + date2.split("-")[1] + "월 " + date2.split("-")[2] + "일";
 
-                           item = new HA_message_item(dt2, true);
-                           list.add(item);
+                            item = new HA_message_item(dt2, true);
+                            list.add(item);
 
-                           item = new HA_message_item(senderId, receiverId, date, msg, userName, false);
-                       } else {
-                           item = new HA_message_item(senderId, receiverId, date, msg, userName, false);
-                       }
+                            item = new HA_message_item(senderId, receiverId, date, msg, userName, false);
+                        } else {
+                            item = new HA_message_item(senderId, receiverId, date, msg, userName, false);
+                        }
 
-                   }
+                    }
 
-                   list.add(item);
-               }
+                    list.add(item);
+                }
 
-               adapter = new Adapter(list);
-               lv.setAdapter(adapter);
+                adapter = new Adapter(list);
+                lv.setAdapter(adapter);
 
-               lv.post(new Runnable() {
-                   @Override
-                   public void run() {
-                       // Select the last row so it will scroll into view...
-                       if(adapter.getCount() != 0)
-                           lv.setSelection(adapter.getCount() - 1);
-                   }
-               });
-           }
+//               lv.post(new Runnable() {
+//                   @Override
+//                   public void run() {
+//                       // Select the last row so it will scroll into view...
+//                       if(adapter.getCount() != 0)
+//                           lv.setSelection(adapter.getCount() - 1);
+//                   }
+//               });
+            }
         } catch (Exception e) {
             e.printStackTrace();
         }
 
 
+        if (!str.equals("No Such User Found")) {
+            lv.post(new Runnable() {
+                @Override
+                public void run() {
+                    // Select the last row so it will scroll into view...
+
+                    lv.setSelection(adapter.getCount() - 1);
+                }
+            });
+        }
 
     }
 
-    private void insertMsg(){
+    private void insertMsg() {
         String senderId = getIntent().getStringExtra("adminId");
         String receiverId = getIntent().getStringExtra("userId");
 
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd kk:mm:ss");
         String date = sdf.format(new Date(System.currentTimeMillis()));
 
         Log.e("날짜,. 시간 ", date);
@@ -333,7 +345,7 @@ public class HA_message extends Activity implements View.OnClickListener {
             @Override
             public void run() {
                 // Select the last row so it will scroll into view...
-                if(adapter.getCount() != 0)
+                if (adapter.getCount() != 0)
                     lv.setSelection(adapter.getCount() - 1);
             }
         });
@@ -343,14 +355,16 @@ public class HA_message extends Activity implements View.OnClickListener {
 
     private String am_pm(int h) {
         if (h >= 0 && h < 12)
-            return "오후";
-        else
             return "오전";
+        else
+            return "오후";
 
     }
 
 
-    /********************* Message Item    ********************/
+    /*********************
+     * Message Item
+     ********************/
 
     public class HA_message_item {
         String senderId, receiverId, date, msg, user;
