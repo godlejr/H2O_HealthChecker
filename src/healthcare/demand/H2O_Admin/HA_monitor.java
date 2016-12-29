@@ -60,6 +60,18 @@ public class HA_monitor extends Activity {
         context = getApplicationContext();
         initReform(); // view size
         initInclude();
+
+
+        ImageView logout = (ImageView)findViewById(R.id.iv_logout);
+        logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(v.getContext(), HA_login.class));
+                finish();
+
+                Toast.makeText(context, "로그아웃 되었습니다", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
 

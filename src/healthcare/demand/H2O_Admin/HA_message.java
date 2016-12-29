@@ -2,6 +2,7 @@ package healthcare.demand.H2O_Admin;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.content.res.Resources;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -22,6 +23,7 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.ScrollView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -54,6 +56,9 @@ public class HA_message extends Activity implements View.OnClickListener {
     EditText message;
     ListView lv;
 
+    Adapter adapter;
+    ArrayList<HA_message_item> list;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -67,6 +72,17 @@ public class HA_message extends Activity implements View.OnClickListener {
 
         adjustViews();
         init();
+
+
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+
+            }
+        });
+
+
 
     }
 
@@ -105,6 +121,14 @@ public class HA_message extends Activity implements View.OnClickListener {
         vml = new ViewMethod_l();
         lv = (ListView) findViewById(R.id.lv_msg);
         send.setOnClickListener(this);
+
+        lv.post(new Runnable() {
+            @Override
+            public void run() {
+                // Select the last row so it will scroll into view...
+                lv.setSelection(adapter.getCount() - 1);
+            }
+        });
 
         readMsg();
     }
@@ -205,7 +229,7 @@ public class HA_message extends Activity implements View.OnClickListener {
     }
 
     private void readMsg() {
-        ArrayList<HA_message_item> list = new ArrayList<>();
+        list = new ArrayList<>();
 
         PHPReader php = new PHPReader();
         String url = "http://1.234.63.165/h2o/admin/select_msg.php";
@@ -266,7 +290,8 @@ public class HA_message extends Activity implements View.OnClickListener {
                 list.add(item);
             }
 
-            lv.setAdapter(new Adapter(list));
+            adapter = new Adapter(list);
+            lv.setAdapter(adapter);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -276,7 +301,6 @@ public class HA_message extends Activity implements View.OnClickListener {
     private void insertMsg(){
         String senderId = getIntent().getStringExtra("adminId");
         String receiverId = getIntent().getStringExtra("userId");
-
 
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
         String date = sdf.format(new Date(System.currentTimeMillis()));
@@ -296,10 +320,20 @@ public class HA_message extends Activity implements View.OnClickListener {
         php.execute(url);
 
         /***********************************************************************/
+        readMsg();
+        adapter = new Adapter(list);
+        adapter.notifyDataSetChanged();
+
+        lv.post(new Runnable() {
+            @Override
+            public void run() {
+                // Select the last row so it will scroll into view...
+                lv.setSelection(adapter.getCount() - 1);
+            }
+        });
+
         message.setText("");
     }
-
-
 
     private String am_pm(int h) {
         if (h >= 0 && h < 12)
