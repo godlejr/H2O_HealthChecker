@@ -27,7 +27,10 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.net.URLConnection;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 import etc.PHPReader;
@@ -65,11 +68,14 @@ public class HA_message extends Activity implements View.OnClickListener {
         adjustViews();
         defineEvents();
         init();
+
+
     }
 
     @Override
     public void onClick(View v) {
         if (v.getId() == R.id.send) {
+            insertMsg();
             message.setText("");
 
         }
@@ -104,8 +110,7 @@ public class HA_message extends Activity implements View.OnClickListener {
         lv = (ListView) findViewById(R.id.lv_msg);
         send.setOnClickListener(this);
 
-        connectDB();
-
+        readMsg();
     }
 
     class Adapter extends BaseAdapter {
@@ -167,16 +172,21 @@ public class HA_message extends Activity implements View.OnClickListener {
 
                 content.setText(list.get(position).getMsg());
 
-
-
-                //int idx = list.get(position).getDate().indexOf("");
-
-
-               String dateStr[] = list.get(position).getDate().split(" ");
+                String dateStr[] = list.get(position).getDate().split(" ");
                 String d = dateStr[0]; /// 날짜
                 String t = dateStr[1]; // 시간
 
+                int hour = Integer.valueOf(t.split(":")[0]);
+                int minute = Integer.valueOf(t.split(":")[1]);
+                String am_pm = am_pm(hour);
+
+                Log.e("hour", hour + " ");
+                Log.e("time", dateStr[1]);
+
+                t = am_pm + (hour-12) + ":" + minute;
                 time.setText(t);
+
+                Log.e("t", t);
 
                 content.setMaxWidth(300);
 
@@ -198,9 +208,104 @@ public class HA_message extends Activity implements View.OnClickListener {
 
     }
 
-    /********************
-     * Message Item
-     ********************/
+    private void readMsg() {
+        ArrayList<HA_message_item> list = new ArrayList<>();
+
+        PHPReader php = new PHPReader();
+        String url = "http://1.234.63.165/h2o/admin/select_msg.php";
+
+        php.addVariable("adminId", getIntent().getStringExtra("adminId"));
+        php.addVariable("userId", getIntent().getStringExtra("userId"));
+        php.addVariable("dbName", "h2ov2");
+        php.execute(url);
+
+        Log.e("msg", "user: " + getIntent().getStringExtra("userId") + " / admin : " + getIntent().getStringExtra("adminId"));
+
+        try {
+            JSONObject obj = new JSONObject(php.get().trim());
+            JSONArray arr = obj.getJSONArray("results");
+
+            for (int i = 0; i < arr.length(); i++) {
+                JSONObject jObj = arr.getJSONObject(i);
+                Log.e("jObj", jObj.getString("msg"));
+
+                String senderId = jObj.get("senderId").toString(); // receiverId
+                String receiverId = jObj.get("receiverId").toString();
+                String userName = jObj.get("name").toString();
+                String date = jObj.get("datetime").toString();
+                String msg = jObj.get("msg").toString();
+
+
+                HA_message_item item = null;
+
+                String date2 = date.split(" ")[0]; // 날짜
+
+                if(i == 0){
+                    String dt = date.split(" ")[0];
+                    String dt2 = dt.split("-")[0] + "년 " + dt.split("-")[1] + "월 "+dt.split("-")[2] + "일";
+
+                    item = new HA_message_item(dt2, true);
+                    list.add(item);
+
+                    item = new HA_message_item(senderId, receiverId, date, msg, userName, false);
+                } else {
+                    String prevDate = arr.getJSONObject(i-1).getString("datetime");
+                    String date3 = prevDate.split(" ")[0]; // 이전 날짜
+
+                    if (!date2.equals(date3)) {
+                        //Log.e("섹터", arr.getJSONObject(i - 1).get("datetime").toString().split(" ")[0]+" / " + arr.getJSONObject(i).get("datetime").toString().split(" ")[0]);
+
+                        String dt2 = date2.split("-")[0] + "년 " + date2.split("-")[1] + "월 " + date2.split("-")[2] + "일";
+
+                        item = new HA_message_item(dt2, true);
+                        list.add(item);
+
+                        item = new HA_message_item(senderId, receiverId, date, msg, userName, false);
+                    } else {
+                        item = new HA_message_item(senderId, receiverId, date, msg, userName, false);
+                    }
+
+                }
+
+                list.add(item);
+            }
+
+            lv.setAdapter(new Adapter(list));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    private void insertMsg(){
+        String senderId = getIntent().getStringExtra("adminId");
+        String receiverid = getIntent().getStringExtra("userId");
+
+
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+        String date = sdf.format(new Date(System.currentTimeMillis()));
+
+        Log.e("날짜,. 시간 ", date);
+
+
+
+
+    }
+
+
+
+    private String am_pm(int h) {
+        if (h >= 0 && h < 12)
+            return "오후";
+        else
+            return "오전";
+
+    }
+
+
+
+
+    /********************* Message Item    ********************/
 
     public class HA_message_item {
         String senderId, receiverId, date, msg, user;
@@ -277,46 +382,6 @@ public class HA_message extends Activity implements View.OnClickListener {
         public void setTitle(String title) {
             this.title = title;
         }
-    }
-
-    private void connectDB() {
-        ArrayList<HA_message_item> list = new ArrayList<>();
-
-        PHPReader php = new PHPReader();
-        String url = "http://1.234.63.165/h2o/admin/select_msg.php";
-
-        php.addVariable("adminId", getIntent().getStringExtra("adminId"));
-        php.addVariable("userId", getIntent().getStringExtra("userId"));
-        php.addVariable("dbName", "h2ov2");
-        php.execute(url);
-
-        Log.e("msg", "user: " + getIntent().getStringExtra("userId") +" / admin : " + getIntent().getStringExtra("adminId"));
-
-        try {
-            JSONObject obj = new JSONObject(php.get().trim());
-            JSONArray arr = obj.getJSONArray("results");
-
-            for (int i = 0; i < arr.length(); i++) {
-                JSONObject jObj = arr.getJSONObject(i);
-                Log.e("jObj", jObj.getString("msg"));
-
-                String senderId = jObj.get("senderId").toString(); // receiverId
-                String receiverId = jObj.get("receiverId").toString();
-                String userName = jObj.get("name").toString();
-                String date = jObj.get("datetime").toString();
-                String msg = jObj.get("msg").toString();
-
-
-                HA_message_item item = new HA_message_item(senderId, receiverId, date, msg, userName, false);
-                list.add(item);
-            }
-
-            lv.setAdapter(new Adapter(list));
-        }
-        catch (Exception e) {
-            e.printStackTrace();
-        }
-
     }
 
 }

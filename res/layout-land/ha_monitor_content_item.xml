@@ -27,7 +27,9 @@
                 android:background="#f9f9f9"
                 android:gravity="center"
                 android:text="01"
-                android:textColor="#5c5c5c" />
+                android:textColor="#5c5c5c"
+
+            />
 
             <TextView
                 android:id="@+id/tv_id"
@@ -39,7 +41,9 @@
                 android:background="#f9f9f9"
                 android:gravity="center"
                 android:text="DKW_001"
-                android:textColor="#5c5c5c" />
+                android:textColor="#5c5c5c"
+                android:ellipsize="end"
+                android:maxLines="1"/>
 
             <TextView
                 android:id="@+id/tv_name"

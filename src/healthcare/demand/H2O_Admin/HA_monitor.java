@@ -125,19 +125,19 @@ public class HA_monitor extends Activity implements View.OnClickListener {
                     user_stress = jo.getString("stress");
                     user_app_count = jo.getString("count");
 
-                    if(!user_aa.equals("")) {
+                    if (!user_aa.equals("")) {
                         temp_aa = (int) Double.parseDouble(user_aa);
                         int_aa_abs = Integer.toString(100 - temp_aa);
-                    }else {
-                        int_aa_abs ="";
+                    } else {
+                        int_aa_abs = "";
                     }
                     if (!user_ppg_stress.equals("")) {
                         temp_ppg_stress = Integer.toString((int) Double.parseDouble(user_ppg_stress));
-                    }else{
-                        temp_ppg_stress ="";
+                    } else {
+                        temp_ppg_stress = "";
                     }
 
-                    list.add(new HA_monitor_item(String.valueOf(i+1), user_id, user_name, temp_ppg_stress + "(" + user_aa + ":" + int_aa_abs + ") / "+ user_hrv, user_sleep + " / " + user_stress, user_app_count + "회"));
+                    list.add(new HA_monitor_item(String.valueOf(i + 1), user_id, user_name, temp_ppg_stress + "(" + user_aa + ":" + int_aa_abs + ") / " + user_hrv, user_sleep + " / " + user_stress, user_app_count + "회"));
                 }
                 lv.setAdapter(new LvAdapter(monitor_content_view.getContext(), list));
             }
@@ -146,7 +146,7 @@ public class HA_monitor extends Activity implements View.OnClickListener {
         }
     }
 
-    class LvAdapter extends BaseAdapter implements View.OnClickListener {
+    class LvAdapter extends BaseAdapter {
         ArrayList<HA_monitor_item> list;
         LayoutInflater inflater;
         Context c;
@@ -195,7 +195,14 @@ public class HA_monitor extends Activity implements View.OnClickListener {
             tv[11].setText(list.get(position).getStress());
             tv[12].setText(list.get(position).getCnt());
 
-            iv_cnt.setOnClickListener(this);
+            iv_cnt.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+
+
+                }
+            });
+
             iv_msg.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -223,23 +230,26 @@ public class HA_monitor extends Activity implements View.OnClickListener {
             return convertView;
         }
 
-        @Override
-        public void onClick(View v) {
-            if (v.getId() == R.id.iv_cnt) {
-                Intent i = new Intent(v.getContext(), HA_appCnt.class);
-                startActivity(i);
-//            } else if (v.getId() == R.id.iv_msg) {
-//                Intent i = new Intent(v.getContext(), HA_message.class);
-//
-//                i.putExtra("adminId", getIntent().getStringExtra("id"));
-//                i.putExtra("userId", tv[8].getText().toString());
-//
-//                Log.e("user", tv[8].getText().toString());
-//
+
+//        @Override
+//        public void onClick(View v) {
+//            if (v.getId() == R.id.iv_cnt) {
+//                Intent i = new Intent(v.getContext(), HA_appCnt.class);
 //                startActivity(i);
+////            } else if (v.getId() == R.id.iv_msg) {
+////                Intent i = new Intent(v.getContext(), HA_message.class);
+////
+////                i.putExtra("adminId", getIntent().getStringExtra("id"));
+////                i.putExtra("userId", tv[8].getText().toString());
+////
+////                Log.e("user", tv[8].getText().toString());
+////
+////                startActivity(i);
+////            }
 //            }
-            }
-        }
+
+
     }
+
 
 }
