@@ -82,8 +82,6 @@ public class HA_message extends Activity implements View.OnClickListener {
             }
         });
 
-
-
     }
 
     @Override
@@ -112,23 +110,11 @@ public class HA_message extends Activity implements View.OnClickListener {
         vm.reformSingleTextBasedView(context, send, 45, "bold", "linear", 180, 140);
     }
 
-    private void defineEvents() {
-
-
-    }
 
     private void init() {
         vml = new ViewMethod_l();
         lv = (ListView) findViewById(R.id.lv_msg);
         send.setOnClickListener(this);
-
-        lv.post(new Runnable() {
-            @Override
-            public void run() {
-                // Select the last row so it will scroll into view...
-                lv.setSelection(adapter.getCount() - 1);
-            }
-        });
 
         readMsg();
     }
