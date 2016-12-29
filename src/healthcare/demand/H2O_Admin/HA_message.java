@@ -193,8 +193,8 @@ public class HA_message extends Activity implements View.OnClickListener {
                 Log.e("time", dateStr[1]);
 
                 if (hour > 12) {
-                    t = am_pm + (hour-12) + ":" + minute;
-                }else{
+                    t = am_pm + (hour - 12) + ":" + minute;
+                } else {
                     t = am_pm + (hour) + ":" + minute;
                 }
                 time.setText(t);

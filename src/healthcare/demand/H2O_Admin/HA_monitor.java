@@ -35,6 +35,7 @@ public class HA_monitor extends Activity {
     View monitor_content_view;
     ListView lv;
     Resources res;
+    TextView company_name;
 
     private PHPReader php;
     String user_id;
@@ -85,7 +86,8 @@ public class HA_monitor extends Activity {
         tv[4] = (TextView) findViewById(R.id.tv_title_stress);
         tv[5] = (TextView) findViewById(R.id.tv_title_cnt);
         tv[6] = (TextView) findViewById(R.id.tv_title_msg); // 메시지
-
+        company_name = (TextView) findViewById(R.id.company_name);
+        company_name.setText(getIntent().getStringExtra("company")+" / "+getIntent().getStringExtra("name")+"님");
 
 //        title
         vm.reformSingleTextBasedView(context, tv[0], 30, "bold", "linear", 138, 100); // 순번
@@ -106,6 +108,7 @@ public class HA_monitor extends Activity {
         ArrayList<HA_monitor_item> list = new ArrayList<>();
 
         php = new PHPReader();
+        php.addVariable("level",getIntent().getStringExtra("level"));
         php.addVariable("dbName", "h2ov2");
         php.execute("http://1.234.63.165/h2o/admin/select_items.php");
 

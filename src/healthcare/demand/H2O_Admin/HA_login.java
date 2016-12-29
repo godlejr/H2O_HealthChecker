@@ -50,6 +50,8 @@ public class HA_login extends Activity {
     SharedPreferences.Editor editor;
     String pref_id, pref_pw;
     String name;
+    String company;
+    String level;
     boolean isChecked = false;
 
     @Override
@@ -158,10 +160,14 @@ public class HA_login extends Activity {
                 for (int i = 0; i < ja.length(); i++) {
                     JSONObject jo = ja.getJSONObject(i);
                     name = jo.getString("name");
+                    company = jo.getString("company");
+                    level = jo.getString("level");
                 }
                 Intent intent = new Intent(HA_login.this, HA_monitor.class);
                 intent.putExtra("id", id);
                 intent.putExtra("name", name);
+                intent.putExtra("company", company);
+                intent.putExtra("level", level);
                 startActivity(intent);
                 finish();
                 overridePendingTransition(R.anim.appear_from_right_300, R.anim.disappear_to_left_300);
