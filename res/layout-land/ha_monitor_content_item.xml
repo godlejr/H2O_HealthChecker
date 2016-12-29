@@ -7,7 +7,7 @@
     <LinearLayout
         android:id="@+id/layout_content"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="40dp"
         android:background="#f2f2f2"
         android:orientation="vertical">
 
@@ -19,7 +19,7 @@
 
             <TextView
                 android:id="@+id/tv_num"
-                android:layout_width="wrap_content"
+                android:layout_width="1dp"
                 android:layout_height="match_parent"
                 android:layout_marginBottom="1px"
                 android:layout_marginRight="1px"
@@ -33,11 +33,11 @@
 
             <TextView
                 android:id="@+id/tv_id"
-                android:layout_width="wrap_content"
+                android:layout_width="1dp"
                 android:layout_height="match_parent"
                 android:layout_marginBottom="1px"
                 android:layout_marginRight="1px"
-                android:layout_weight="1"
+                android:layout_weight="1.5"
                 android:background="#f9f9f9"
                 android:gravity="center"
                 android:text="DKW_001"
@@ -47,11 +47,11 @@
 
             <TextView
                 android:id="@+id/tv_name"
-                android:layout_width="wrap_content"
+                android:layout_width="1dp"
                 android:layout_height="match_parent"
                 android:layout_marginBottom="1px"
                 android:layout_marginRight="1px"
-                android:layout_weight="1"
+                android:layout_weight="1.5"
                 android:background="#f9f9f9"
                 android:gravity="center"
                 android:text="박혜연"
@@ -59,11 +59,11 @@
 
             <TextView
                 android:id="@+id/tv_anb"
-                android:layout_width="wrap_content"
+                android:layout_width="1dp"
                 android:layout_height="match_parent"
                 android:layout_marginBottom="1px"
                 android:layout_marginRight="1px"
-                android:layout_weight="1"
+                android:layout_weight="2"
                 android:background="#f9f9f9"
                 android:gravity="center"
                 android:text="38(42:58)/123"
@@ -71,11 +71,11 @@
 
             <TextView
                 android:id="@+id/tv_stress"
-                android:layout_width="wrap_content"
+                android:layout_width="1dp"
                 android:layout_height="match_parent"
                 android:layout_marginBottom="1px"
                 android:layout_marginRight="1px"
-                android:layout_weight="1"
+                android:layout_weight="2"
                 android:background="#f9f9f9"
                 android:gravity="center"
                 android:text="5/5"
@@ -83,11 +83,11 @@
 
             <LinearLayout
                 android:id="@+id/layout_cnt"
-                android:layout_width="wrap_content"
+                android:layout_width="1dp"
                 android:layout_height="match_parent"
                 android:layout_marginBottom="1px"
                 android:layout_marginRight="1px"
-                android:layout_weight="1"
+                android:layout_weight="1.5"
                 android:background="#f9f9f9"
                 android:gravity="center"
                 android:orientation="horizontal">
@@ -105,16 +105,15 @@
                     android:id="@+id/iv_cnt"
                     android:layout_width="0dp"
                     android:layout_height="30dp"
-                    android:layout_weight="0.5"
+                    android:layout_weight="1"
                     android:src="@drawable/icon_plus" />
 
             </LinearLayout>
 
             <ImageView
                 android:id="@+id/iv_msg"
-                android:layout_width="40dp"
+                android:layout_width="1dp"
                 android:layout_height="match_parent"
-                android:layout_marginBottom="1px"
                 android:layout_weight="1"
                 android:background="#f9f9f9"
                 android:src="@drawable/icon_message" />

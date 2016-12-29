@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent" android:padding="10dp" android:background="#f9f9f9">
+
+    <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top|center_horizontal"
+            android:background="@drawable/round_corner">
+
+        <ImageView
+                android:src="@drawable/icon_back"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:id="@+id/iv_send_all_back"
+                android:layout_gravity="center_vertical" />
+
+        <TextView
+                android:text="전체 메시지"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/title"
+                android:layout_gravity="center"
+                android:textColor="#5c5c5c"
+                android:textSize="25dp" />
+    </FrameLayout>
+
+    <EditText
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:id="@+id/et_msg_send_all" android:background="@drawable/round_corner"
+            android:layout_weight="5" android:padding="10dp"
+            android:hint="메시지를 입력하세요" android:gravity="top"/>
+    <Button
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:text="전송"
+            android:id="@+id/send_btn" android:layout_gravity="bottom" android:layout_weight="0.5"
+            android:layout_marginLeft="50dp" android:layout_marginRight="50dp" android:layout_marginTop="10dp"
+            android:background="@drawable/round_corner" android:textSize="18dp"/>
+</LinearLayout>

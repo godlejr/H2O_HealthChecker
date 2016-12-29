@@ -3,14 +3,9 @@ package etc;
 import android.util.Log;
 
 import java.io.BufferedReader;
-import java.io.BufferedWriter;
 import java.io.InputStreamReader;
-import java.io.OutputStream;
-import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
 import java.net.URL;
-
-import healthcare.demand.H2O_Admin.HA_message;
 
 /**
  * Created by ㅇㅇ on 2016-12-20.

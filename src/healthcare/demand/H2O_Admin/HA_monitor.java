@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -28,7 +29,6 @@ import etc.ViewMethod_l;
 
 public class HA_monitor extends Activity {
     TextView[] tv = new TextView[17];
-    ViewMethod_l vm = new ViewMethod_l();
     Context context;
 //    ImageView iv_msg, iv_cnt;
 
@@ -57,13 +57,14 @@ public class HA_monitor extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.ha_monitor);
-
         context = getApplicationContext();
+
         initReform(); // view size
         initInclude();
 
+        company_name = (TextView)findViewById(R.id.company_name);
 
-        ImageView logout = (ImageView)findViewById(R.id.iv_logout);
+        ImageView logout = (ImageView) findViewById(R.id.iv_logout);
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -71,6 +72,16 @@ public class HA_monitor extends Activity {
                 finish();
 
                 Toast.makeText(context, "로그아웃 되었습니다", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        ImageView send_all = (ImageView) findViewById(R.id.iv_total_msg);
+        send_all.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(v.getContext(), HA_send_all.class);
+                i.putExtra("admin", getIntent().getStringExtra("id"));
+                startActivity(i);
             }
         });
     }
@@ -86,29 +97,31 @@ public class HA_monitor extends Activity {
         tv[4] = (TextView) findViewById(R.id.tv_title_stress);
         tv[5] = (TextView) findViewById(R.id.tv_title_cnt);
         tv[6] = (TextView) findViewById(R.id.tv_title_msg); // 메시지
-        company_name = (TextView) findViewById(R.id.company_name);
-        company_name.setText(getIntent().getStringExtra("company")+" / "+getIntent().getStringExtra("name")+"님");
+
+
+
+   //     company_name.setText(getIntent().getStringExtra("company") + " / " + getIntent().getStringExtra("name") + "님");
 
 //        title
-        vm.reformSingleTextBasedView(context, tv[0], 30, "bold", "linear", 138, 100); // 순번
-        vm.reformSingleTextBasedView(context, tv[1], 30, "bold", "linear", 310, 100); // ID
-        vm.reformSingleTextBasedView(context, tv[2], 30, "bold", "linear", 250, 100); // 이름
-        vm.reformSingleTextBasedView(context, tv[3], 30, "bold", "linear", 358, 100); // ANB/HRV
-        vm.reformSingleTextBasedView(context, tv[4], 30, "bold", "linear", 358, 100); // 수면/스트레스
-        vm.reformSingleTextBasedView(context, tv[5], 30, "bold", "linear", 250, 100); // 앱 사용 횟수
-        vm.reformSingleTextBasedView(context, tv[6], 30, "bold", "linear", 250, 100); // 메시지
+
+
+//        vm.reformSingleTextBasedView(context, tv[0], 30, "bold", "linear", 138, 100); // 순번
+//        vm.reformSingleTextBasedView(context, tv[1], 30, "bold", "linear", 310, 100); // ID
+//        vm.reformSingleTextBasedView(context, tv[2], 30, "bold", "linear", 250, 100); // 이름
+//        vm.reformSingleTextBasedView(context, tv[3], 30, "bold", "linear", 358, 100); // ANB/HRV
+//        vm.reformSingleTextBasedView(context, tv[4], 30, "bold", "linear", 358, 100); // 수면/스트레스
+//        vm.reformSingleTextBasedView(context, tv[5], 30, "bold", "linear", 250, 100); // 앱 사용 횟수
+//        vm.reformSingleTextBasedView(context, tv[6], 30, "bold", "linear", 250, 100); // 메시지
 
     }
 
     private void initInclude() {
-        monitor_content_view = (View) findViewById(R.id.monitor_content);
-        lv = (ListView) monitor_content_view.findViewById(R.id.lv_monitor_content);
 
 /***************************  테스트용 리스트   *******************************/
         ArrayList<HA_monitor_item> list = new ArrayList<>();
 
         php = new PHPReader();
-        php.addVariable("level",getIntent().getStringExtra("level"));
+        php.addVariable("level", getIntent().getStringExtra("level"));
         php.addVariable("dbName", "h2ov2");
         php.execute("http://1.234.63.165/h2o/admin/select_items.php");
 
@@ -117,7 +130,6 @@ public class HA_monitor extends Activity {
             } else {
                 JSONObject root = new JSONObject(php.get().trim());
                 JSONArray ja = root.getJSONArray("results");
-
                 for (int i = 0; i < ja.length(); i++) {
                     JSONObject jo = ja.getJSONObject(i);
                     user_id = jo.getString("id");
@@ -146,26 +158,30 @@ public class HA_monitor extends Activity {
                         user_hrv = Integer.toString((int) Double.parseDouble(user_hrv));
                     }
 
-                    if(!temp_ppg_stress.equals("") && !user_aa.equals("") && !int_aa_abs.equals("") && !user_hrv.equals("") ){
-                        anvHrv =temp_ppg_stress + "(" + user_aa + ":" + int_aa_abs + ") / " + user_hrv;
-                    }else{
-                        anvHrv="-";
+                    if (!temp_ppg_stress.equals("") && !user_aa.equals("") && !int_aa_abs.equals("") && !user_hrv.equals("")) {
+                        anvHrv = temp_ppg_stress + "(" + user_aa + ":" + int_aa_abs + ") / " + user_hrv;
+                    } else {
+                        anvHrv = "-";
                     }
 
-                    if(!user_sleep.equals("") && !user_stress.equals("") ){
-                        sleepStress =user_sleep + " / " + user_stress;
-                    }else{
-                        sleepStress="-";
+                    if (!user_sleep.equals("") && !user_stress.equals("")) {
+                        sleepStress = user_sleep + " / " + user_stress;
+                    } else {
+                        sleepStress = "-";
                     }
 
-
-                    list.add(new HA_monitor_item(String.valueOf(i + 1), user_id, user_name, anvHrv , sleepStress, user_app_count + "회"));
+                    list.add(new HA_monitor_item(String.valueOf(i + 1), user_id, user_name, anvHrv, sleepStress, user_app_count + "회"));
                 }
+
+                monitor_content_view = (View) findViewById(R.id.monitor_content);
+                lv = (ListView) monitor_content_view.findViewById(R.id.lv_monitor_content);
+
                 lv.setAdapter(new LvAdapter(monitor_content_view.getContext(), list));
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
+
     }
 
     class LvAdapter extends BaseAdapter {
@@ -221,7 +237,7 @@ public class HA_monitor extends Activity {
                 @Override
                 public void onClick(View v) {
                     Intent i = new Intent(v.getContext(), HA_appCnt.class);
-                    i.putExtra("userId",list.get(position).getId());
+                    i.putExtra("userId", list.get(position).getId());
                     startActivity(i);
                 }
             });
@@ -229,45 +245,12 @@ public class HA_monitor extends Activity {
             iv_msg.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent i = new Intent(v.getContext(), HA_message.class);
-
-                    i.putExtra("adminId", getIntent().getStringExtra("id"));
-                    i.putExtra("userId", list.get(position).getId());
-
-                    startActivity(i);
+                    Toast.makeText(context, " 현재 전체메시지 전송만 가능합니다.", Toast.LENGTH_SHORT).show();
                 }
             });
 
-            vm.reformSingleTextBasedView(context, tv[7], 35, "regular", "linear", 138, 100);
-            vm.reformSingleTextBasedView(context, tv[8], 35, "regular", "linear", 310, 100);
-            vm.reformSingleTextBasedView(context, tv[9], 35, "regular", "linear", 250, 100);
-            vm.reformSingleTextBasedView(context, tv[10], 35, "regular", "linear", 358, 100);
-            vm.reformSingleTextBasedView(context, tv[11], 35, "regular", "linear", 358, 100);
-            vm.reformSingleTextBasedView(context, tv[12], 35, "regular", "linear", 188, 100);
-
-            vm.resizeSingleView(iv_cnt, res, R.drawable.icon_plus, "linear", 62, 100);
-            vm.resizeSingleView(iv_msg, res, R.drawable.icon_message, "linear", 250, 100);
-
             return convertView;
         }
-
-
-//        @Override
-//        public void onClick(View v) {
-//            if (v.getId() == R.id.iv_cnt) {
-//                Intent i = new Intent(v.getContext(), HA_appCnt.class);
-//                startActivity(i);
-////            } else if (v.getId() == R.id.iv_msg) {
-////                Intent i = new Intent(v.getContext(), HA_message.class);
-////
-////                i.putExtra("adminId", getIntent().getStringExtra("id"));
-////                i.putExtra("userId", tv[8].getText().toString());
-////
-////                Log.e("user", tv[8].getText().toString());
-////
-////                startActivity(i);
-////            }
-//            }
 
 
     }

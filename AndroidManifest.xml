@@ -16,9 +16,9 @@
         </activity>
 
         <!--android:windowSoftInputMode="adjustNothing"-->
-        <activity android:name=".HA_message" android:screenOrientation="portrait" android:theme="@android:style/Theme.NoTitleBar"  />
         <activity android:name=".HA_monitor" android:screenOrientation="landscape" android:theme="@android:style/Theme.NoTitleBar" />
         <activity android:name=".HA_appCnt" android:screenOrientation="landscape" android:theme="@android:style/Theme.Dialog" />
+        <activity android:name=".HA_send_all" android:screenOrientation="portrait" android:theme="@android:style/Theme.NoTitleBar"/>
 
     </application>
 </manifest>

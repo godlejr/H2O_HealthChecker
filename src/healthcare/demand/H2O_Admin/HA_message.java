@@ -89,6 +89,7 @@ public class HA_message extends Activity implements View.OnClickListener {
     public void onClick(View v) {
         if (v.getId() == R.id.send) {
             insertMsg();
+            Log.i("sssssss","sbsbsbsbbbbsbsssssssssss");
         }
     }
 
@@ -119,6 +120,7 @@ public class HA_message extends Activity implements View.OnClickListener {
 
         readMsg();
 
+       // lv.requestFocusFromTouch();
 
     }
 
@@ -227,8 +229,8 @@ public class HA_message extends Activity implements View.OnClickListener {
         PHPReader php = new PHPReader();
         String url = "http://1.234.63.165/h2o/admin/select_msg.php";
 
-        php.addVariable("adminId", getIntent().getStringExtra("adminId"));
-        php.addVariable("userId", getIntent().getStringExtra("userId"));
+        php.addVariable("senderId", getIntent().getStringExtra("adminId"));
+        php.addVariable("receiverId", getIntent().getStringExtra("userId"));
         php.addVariable("dbName", "h2ov2");
         php.execute(url);
 
@@ -237,12 +239,16 @@ public class HA_message extends Activity implements View.OnClickListener {
         try {
             str = php.get().trim();
 
+            Log.e("json", str);
+
             if (!str.equals("No Such User Found")) {
 
                 JSONObject obj = new JSONObject(str);
                 JSONArray arr = obj.getJSONArray("results");
 
                 for (int i = 0; i < arr.length(); i++) {
+                    Log.i("arr_length", arr.length()+"");
+
                     JSONObject jObj = arr.getJSONObject(i);
                     Log.e("jObj", jObj.getString("msg"));
 
@@ -251,7 +257,6 @@ public class HA_message extends Activity implements View.OnClickListener {
                     String userName = jObj.get("name").toString();
                     String date = jObj.get("datetime").toString();
                     String msg = jObj.get("msg").toString();
-
 
                     HA_message_item item = null;
 
@@ -288,30 +293,14 @@ public class HA_message extends Activity implements View.OnClickListener {
                 adapter = new Adapter(list);
                 lv.setAdapter(adapter);
 
-//               lv.post(new Runnable() {
-//                   @Override
-//                   public void run() {
-//                       // Select the last row so it will scroll into view...
-//                       if(adapter.getCount() != 0)
-//                           lv.setSelection(adapter.getCount() - 1);
-//                   }
-//               });
+
+                lv.setSelection(adapter.getCount() - 1);
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
 
 
-        if (!str.equals("No Such User Found")) {
-            lv.post(new Runnable() {
-                @Override
-                public void run() {
-                    // Select the last row so it will scroll into view...
-
-                    lv.setSelection(adapter.getCount() - 1);
-                }
-            });
-        }
 
     }
 
@@ -341,14 +330,6 @@ public class HA_message extends Activity implements View.OnClickListener {
         adapter = new Adapter(list);
         adapter.notifyDataSetChanged();
 
-        lv.post(new Runnable() {
-            @Override
-            public void run() {
-                // Select the last row so it will scroll into view...
-                if (adapter.getCount() != 0)
-                    lv.setSelection(adapter.getCount() - 1);
-            }
-        });
 
         message.setText("");
     }
