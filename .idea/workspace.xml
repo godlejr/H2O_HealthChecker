@@ -15,12 +15,9 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/H2OAdmin/H2OAdmin.apk" afterPath="$PROJECT_DIR$/out/production/H2OAdmin/H2OAdmin.apk" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/H2OAdmin/H2OAdmin.unaligned.apk" afterPath="$PROJECT_DIR$/out/production/H2OAdmin/H2OAdmin.unaligned.apk" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/H2OAdmin/healthcare/demand/H2O_Admin/HA_message.class" afterPath="$PROJECT_DIR$/out/production/H2OAdmin/healthcare/demand/H2O_Admin/HA_message.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/H2OAdmin/healthcare/demand/H2O_Admin/R$id.class" afterPath="$PROJECT_DIR$/out/production/H2OAdmin/healthcare/demand/H2O_Admin/R$id.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/layout-land/ha_monitor.xml" afterPath="$PROJECT_DIR$/res/layout-land/ha_monitor.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/layout/ha_message.xml" afterPath="$PROJECT_DIR$/res/layout/ha_message.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/healthcare/demand/H2O_Admin/HA_message.java" afterPath="$PROJECT_DIR$/src/healthcare/demand/H2O_Admin/HA_message.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/healthcare/demand/H2O_Admin/HA_monitor.java" afterPath="$PROJECT_DIR$/src/healthcare/demand/H2O_Admin/HA_monitor.java" />
     </list>
     <ignored path="H2O Admin.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -45,18 +42,27 @@
       <file leaf-file-name="HA_message.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/healthcare/demand/H2O_Admin/HA_message.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="512">
-              <caret line="318" column="61" selection-start-line="318" selection-start-column="61" selection-end-line="318" selection-end-column="61" />
+            <state relative-caret-position="778">
+              <caret line="309" column="5" selection-start-line="309" selection-start-column="5" selection-end-line="309" selection-end-column="5" />
               <folding>
                 <element signature="method#onClick#0;class#HA_message#0" expanded="false" />
                 <element signature="method#adjustViews#0;class#HA_message#0" expanded="false" />
                 <element signature="method#defineEvents#0;class#HA_message#0" expanded="false" />
                 <element signature="class#Adapter#0;class#HA_message#0" expanded="false" />
                 <element signature="method#getView#0;class#Adapter#0;class#HA_message#0" expanded="false" />
-                <element signature="method#readMsg#0;class#HA_message#0" expanded="false" />
                 <element signature="method#am_pm#0;class#HA_message#0" expanded="false" />
                 <element signature="class#HA_message_item#0;class#HA_message#0" expanded="false" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ViewMethod.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/etc/ViewMethod.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="542">
+              <caret line="561" column="0" selection-start-line="561" selection-start-column="0" selection-end-line="561" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -82,14 +88,14 @@
       </file>
       <file leaf-file-name="ha_message.xml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/res/layout/ha_message.xml">
-          <provider selected="true" editor-type-id="android-designer2">
+          <provider editor-type-id="android-designer2">
             <state />
           </provider>
-          <provider editor-type-id="text-editor">
-            <state relative-caret-position="613">
-              <caret line="40" column="45" selection-start-line="40" selection-start-column="45" selection-end-line="40" selection-end-column="45" />
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="652">
+              <caret line="42" column="0" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
               <folding>
-                <marker date="1482989557134" expanded="false" signature="2765:3414" ph="..." />
+                <marker date="1482992013465" expanded="false" signature="2776:3425" ph="..." />
               </folding>
             </state>
           </provider>
@@ -201,9 +207,9 @@
     <detection-done>true</detection-done>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="315" />
-    <option name="y" value="42" />
-    <option name="width" value="1579" />
+    <option name="x" value="-66" />
+    <option name="y" value="46" />
+    <option name="width" value="2230" />
     <option name="height" value="1343" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -280,6 +286,10 @@
               <option name="myItemId" value="src" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="etc" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -328,6 +338,24 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="layout" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="H2O Admin" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="h2o" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="res" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="drawable-hdpi" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -1030,7 +1058,14 @@
       <option name="project" value="LOCAL" />
       <updated>1482987614816</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="message 보내기 최종 완료!!">
+      <created>1482989828776</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1482989828777</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -1046,7 +1081,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="315" y="42" width="1579" height="1343" extended-state="0" />
+    <frame x="-66" y="46" width="2230" height="1343" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32925764" sideWeight="0.49569893" order="5" side_tool="false" content_ui="tabs" />
@@ -1059,18 +1094,18 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.30120483" sideWeight="0.30006653" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.30464715" sideWeight="0.49784946" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32995737" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.030204082" sideWeight="0.69993347" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16652136" sideWeight="0.49784946" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.07149085" sideWeight="0.69993347" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="1.0" sideWeight="0.49784946" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.34640524" sideWeight="0.50860214" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24151696" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16852368" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24980016" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Android Model" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4535284" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4533566" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -1150,11 +1185,12 @@
     <MESSAGE value="message 기능 완료 (날짜 섹터 포함)" />
     <MESSAGE value="message 보내기 수정중" />
     <MESSAGE value="message 보내기 + 전송시 리스트 갱신 완료!!" />
-    <option name="LAST_COMMIT_MESSAGE" value="message 보내기 + 전송시 리스트 갱신 완료!!" />
+    <MESSAGE value="message 보내기 최종 완료!!" />
+    <option name="LAST_COMMIT_MESSAGE" value="message 보내기 최종 완료!!" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="30" />
+      <option name="time" value="31" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -1167,7 +1203,7 @@
         <state relative-caret-position="1102">
           <caret line="58" column="46" selection-start-line="58" selection-start-column="46" selection-end-line="58" selection-end-column="46" />
           <folding>
-            <marker date="1482989557134" expanded="false" signature="2765:3414" ph="..." />
+            <marker date="1482992013465" expanded="false" signature="2776:3425" ph="..." />
           </folding>
         </state>
       </provider>
@@ -1182,7 +1218,6 @@
             <element signature="method#defineEvents#0;class#HA_message#0" expanded="false" />
             <element signature="class#Adapter#0;class#HA_message#0" expanded="false" />
             <element signature="method#getView#0;class#Adapter#0;class#HA_message#0" expanded="false" />
-            <element signature="method#readMsg#0;class#HA_message#0" expanded="false" />
             <element signature="method#am_pm#0;class#HA_message#0" expanded="false" />
             <element signature="class#HA_message_item#0;class#HA_message#0" expanded="false" />
           </folding>
@@ -1284,14 +1319,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/etc/ViewMethod.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="423">
-          <caret line="182" column="58" selection-start-line="182" selection-start-column="58" selection-end-line="182" selection-end-column="58" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1567,19 +1594,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/res/layout/ha_message.xml">
-      <provider selected="true" editor-type-id="android-designer2">
-        <state />
-      </provider>
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="613">
-          <caret line="40" column="45" selection-start-line="40" selection-start-column="45" selection-end-line="40" selection-end-column="45" />
-          <folding>
-            <marker date="1482989557134" expanded="false" signature="2765:3414" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/AndroidManifest.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="425">
@@ -1588,17 +1602,37 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/res/layout/ha_message.xml">
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="652">
+          <caret line="42" column="0" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
+          <folding>
+            <marker date="1482992013465" expanded="false" signature="2776:3425" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/etc/ViewMethod.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="542">
+          <caret line="561" column="0" selection-start-line="561" selection-start-column="0" selection-end-line="561" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/healthcare/demand/H2O_Admin/HA_message.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="512">
-          <caret line="318" column="61" selection-start-line="318" selection-start-column="61" selection-end-line="318" selection-end-column="61" />
+        <state relative-caret-position="778">
+          <caret line="309" column="5" selection-start-line="309" selection-start-column="5" selection-end-line="309" selection-end-column="5" />
           <folding>
             <element signature="method#onClick#0;class#HA_message#0" expanded="false" />
             <element signature="method#adjustViews#0;class#HA_message#0" expanded="false" />
             <element signature="method#defineEvents#0;class#HA_message#0" expanded="false" />
             <element signature="class#Adapter#0;class#HA_message#0" expanded="false" />
             <element signature="method#getView#0;class#Adapter#0;class#HA_message#0" expanded="false" />
-            <element signature="method#readMsg#0;class#HA_message#0" expanded="false" />
             <element signature="method#am_pm#0;class#HA_message#0" expanded="false" />
             <element signature="class#HA_message_item#0;class#HA_message#0" expanded="false" />
           </folding>

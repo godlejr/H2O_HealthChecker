@@ -38,7 +38,8 @@
         android:dividerHeight="10dp"
         android:divider="@null"
         android:background="#f5f5f5"
-        android:transcriptMode="alwaysScroll"/>
+       />
+    <!--android:transcriptMode="alwaysScroll"-->
 
     <LinearLayout
         android:orientation="horizontal"
