@@ -49,6 +49,8 @@ public class HA_monitor extends Activity {
     int temp_aa;
     String temp_ppg_stress;
     String int_aa_abs;
+    String anvHrv;
+    String sleepStress;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -129,7 +131,20 @@ public class HA_monitor extends Activity {
                         user_hrv = Integer.toString((int) Double.parseDouble(user_hrv));
                     }
 
-                    list.add(new HA_monitor_item(String.valueOf(i + 1), user_id, user_name, temp_ppg_stress + "(" + user_aa + ":" + int_aa_abs + ") / " + user_hrv, user_sleep + " / " + user_stress, user_app_count + "회"));
+                    if(!temp_ppg_stress.equals("") && !user_aa.equals("") && !int_aa_abs.equals("") && !user_hrv.equals("") ){
+                        anvHrv =temp_ppg_stress + "(" + user_aa + ":" + int_aa_abs + ") / " + user_hrv;
+                    }else{
+                        anvHrv="-";
+                    }
+
+                    if(!user_sleep.equals("") && !user_stress.equals("") ){
+                        sleepStress =user_sleep + " / " + user_stress;
+                    }else{
+                        sleepStress="-";
+                    }
+
+
+                    list.add(new HA_monitor_item(String.valueOf(i + 1), user_id, user_name, anvHrv , sleepStress, user_app_count + "회"));
                 }
                 lv.setAdapter(new LvAdapter(monitor_content_view.getContext(), list));
             }

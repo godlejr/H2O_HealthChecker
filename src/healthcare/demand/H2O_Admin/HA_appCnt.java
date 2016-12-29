@@ -35,12 +35,12 @@ public class HA_appCnt extends Activity {
 
     PHPReader php;
 
-    int healing_sum=0;
-    int jeju_sum=0;
-    int breath_sum=0;
-    int meditation_sum=0;
-    int rethink_sum=0;
-    int smoody_sum=0;
+    int healing_sum = 0;
+    int jeju_sum = 0;
+    int breath_sum = 0;
+    int meditation_sum = 0;
+    int rethink_sum = 0;
+    int smoody_sum = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,35 +70,63 @@ public class HA_appCnt extends Activity {
 
         try {
             if (php.get().trim().equalsIgnoreCase("No Such User Found")) {
+                tv_cnt_1.setText("-");
+                tv_cnt_2.setText("-");
+                tv_cnt_3.setText("-");
+                tv_cnt_4.setText("-");
+                tv_cnt_5.setText("-");
+                tv_cnt_6.setText("-");
             } else {
                 JSONObject root = new JSONObject(php.get().trim());
                 JSONArray ja = root.getJSONArray("results");
 
                 for (int i = 0; i < ja.length(); i++) {
                     JSONObject jo = ja.getJSONObject(i);
-                    if(jo.getString("name").equals("healing")){
+                    if (jo.getString("name").equals("healing")) {
                         healing_sum += Integer.parseInt(jo.getString("count"));
-                        Log.i("dsdfdsfds","jo.getString(\"name\")");
-                    }else  if(jo.getString("name").equals("jeju")){
+                    } else if (jo.getString("name").equals("jeju")) {
                         jeju_sum += Integer.parseInt(jo.getString("count"));
-                    }else  if(jo.getString("name").equals("breath")){
+                    } else if (jo.getString("name").equals("breath")) {
                         breath_sum += Integer.parseInt(jo.getString("count"));
-                    }else  if(jo.getString("name").equals("meditation")){
+                    } else if (jo.getString("name").equals("meditation")) {
                         meditation_sum += Integer.parseInt(jo.getString("count"));
-                    }else  if(jo.getString("name").equals("rethink")){
+                    } else if (jo.getString("name").equals("rethink")) {
                         rethink_sum += Integer.parseInt(jo.getString("count"));
-                    }else  if(jo.getString("name").equals("smoody")){
+                    } else if (jo.getString("name").equals("smoody")) {
                         smoody_sum += Integer.parseInt(jo.getString("count"));
                     }
                 }
 
-                 tv_cnt_1.setText(String.valueOf(healing_sum)+"회");
-                 tv_cnt_2.setText(String.valueOf(jeju_sum)+"회");
-                 tv_cnt_3.setText(String.valueOf(breath_sum)+"회");
-                 tv_cnt_4.setText(String.valueOf(meditation_sum)+"회");
-                 tv_cnt_5.setText(String.valueOf(rethink_sum)+"회");
-                 tv_cnt_6.setText(String.valueOf(smoody_sum)+"회");
-
+                if (healing_sum != 0) {
+                    tv_cnt_1.setText(String.valueOf(healing_sum) + "회");
+                } else {
+                    tv_cnt_1.setText("-");
+                }
+                if (jeju_sum != 0) {
+                    tv_cnt_2.setText(String.valueOf(jeju_sum) + "회");
+                } else {
+                    tv_cnt_2.setText("-");
+                }
+                if (breath_sum != 0) {
+                    tv_cnt_3.setText(String.valueOf(breath_sum) + "회");
+                } else {
+                    tv_cnt_3.setText("-");
+                }
+                if (meditation_sum != 0) {
+                    tv_cnt_4.setText(String.valueOf(meditation_sum) + "회");
+                } else {
+                    tv_cnt_4.setText("-");
+                }
+                if (rethink_sum != 0) {
+                    tv_cnt_5.setText(String.valueOf(rethink_sum) + "회");
+                } else {
+                    tv_cnt_5.setText("-");
+                }
+                if (smoody_sum != 0) {
+                    tv_cnt_6.setText(String.valueOf(smoody_sum) + "회");
+                } else {
+                    tv_cnt_6.setText("-");
+                }
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -129,7 +157,6 @@ public class HA_appCnt extends Activity {
         });
 
     }
-
 
 
 }
